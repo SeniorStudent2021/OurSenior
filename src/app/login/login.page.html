@@ -7,19 +7,19 @@
 <h2 class="top">Welcome Back! </h2><br><br>
 
     <ion-item class="roundedInput">
-      <ion-input placeholder="Enter email">  </ion-input><br>
+      <ion-input [(ngModel)]="username" placeholder="Enter email">  </ion-input><br>
     </ion-item>
 
       <br> 
       <ion-item class="roundedInput">
 
-    <ion-input placeholder="Enter password">  </ion-input>
+    <ion-input  [(ngModel)]= "password" type="password" placeholder="Enter password">  </ion-input>
     </ion-item>
     <br>
     
    &nbsp;  &nbsp;  &nbsp;  &nbsp; 
    &nbsp;  &nbsp;  &nbsp;  &nbsp;  
-    &nbsp;  &nbsp;  &nbsp;  &nbsp;<ion-button  style="text-align:center">Sign in </ion-button>
+    &nbsp;  &nbsp;  &nbsp;  &nbsp;<ion-button (click)="login(username,password)" style="text-align:center">Sign in </ion-button>
 
 
 
