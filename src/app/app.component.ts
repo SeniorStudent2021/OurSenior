@@ -13,7 +13,7 @@ export class AppComponent {
     { title: 'Services', url: '/services', icon: 'cog' },
     { title: 'Add vehicle', url: '/addvehicle', icon: 'car' }
 ,
-    { title: 'Account', url: '/login', icon: 'person' },
+    { title: 'Account', url: '/profile', icon: 'person' },
     { title: 'Contact us', url: '/contact', icon: 'call' }
 
 

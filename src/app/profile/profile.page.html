@@ -1,0 +1,38 @@
+<ion-toolbar  class="background">
+  <ion-buttons slot="start">
+    <ion-menu-button></ion-menu-button>
+
+    <ion-back-button></ion-back-button>
+
+  </ion-buttons>
+</ion-toolbar>
+<ion-content class="background">
+  <br><br>
+  <h2> profile</h2>
+
+<br><br>
+ <h3>  &nbsp;  &nbsp;  &nbsp;Name:</h3>
+
+  <ion-item class="roundedInput">
+    <ion-input [(ngModel)]="x">  </ion-input><br>
+  </ion-item>
+
+    <br>
+     <h3>&nbsp;  &nbsp;  &nbsp;Email:</h3>
+
+    <ion-item class="roundedInput">
+
+  <ion-input  [(ngModel)]= "x" type="email" >  </ion-input>
+  </ion-item>
+<br>
+ <h3> &nbsp;  &nbsp;  &nbsp;Mobile number:</h3>
+
+  <ion-item class="roundedInput">
+
+    <ion-input  [(ngModel)]= "x" type="number" >  </ion-input>
+    </ion-item>
+     <br>
+    &nbsp;  &nbsp;     &nbsp;  &nbsp;    &nbsp;  &nbsp;  &nbsp;     &nbsp;  &nbsp;
+       &nbsp;  &nbsp; &nbsp;  &nbsp;<ion-button  style="text-align:center">Update profile </ion-button>
+
+</ion-content>
