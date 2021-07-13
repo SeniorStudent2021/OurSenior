@@ -16,6 +16,8 @@ export class AppComponent {
     
   ];
   public uid;
+  rootPage:any;
+
   constructor( public router:Router,public afAuth: AngularFireAuth) {
 
     const authObserver = afAuth.authState.subscribe( 

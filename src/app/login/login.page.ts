@@ -13,15 +13,16 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
   }
+  
+  public uid;
   login(username,password){
- 
+
 
 
     this.afAuth.signInWithEmailAndPassword(username,password)
     .then((response)=>{
-    
-    alert("Logged in succefully");
-    
+              this.router.navigate(['/services',response.user.uid]);
+
     }
     )
     .catch((err )=>{
