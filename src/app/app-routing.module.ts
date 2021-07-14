@@ -38,6 +38,10 @@ const routes: Routes = [
     path: 'profile',
     loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
   },
+  {
+    path: 'activerequest',
+    loadChildren: () => import('./activerequest/activerequest.module').then( m => m.ActiverequestPageModule)
+  },
 
  
 

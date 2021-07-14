@@ -1,0 +1,40 @@
+<ion-toolbar  class="background">
+  <ion-buttons slot="start">
+    <ion-menu-button></ion-menu-button>
+
+    <ion-back-button></ion-back-button>
+
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content class="background">
+  <br>
+  <ion-segment [(ngModel)]="requests">
+    <ion-segment-button value="active">
+     <h2> Active requests </h2>
+    </ion-segment-button>
+    <ion-segment-button value="history">
+    <h2> History</h2> 
+    </ion-segment-button>
+  </ion-segment>
+
+
+  <div [ngSwitch]="requests">
+    <ion-list lines="none" *ngSwitchCase="'active'">
+<ion-card>
+      <ion-item >
+        <br>
+        <p> Tow truck <br></p> 
+       
+     &nbsp;  &nbsp;  &nbsp;<ion-button>   Request</ion-button>   
+          </ion-item>
+    </ion-card>
+
+
+
+    </ion-list>
+  </div>  
+
+
+
+</ion-content>

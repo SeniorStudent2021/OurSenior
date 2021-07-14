@@ -8,19 +8,26 @@ import { AngularFireAuth } from '@angular/fire/auth';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  public appPages = [
+   public uid;
+   public appPages;
+ public authObserver = this.afAuth.authState.subscribe( 
+            user => {
+             if (user) {
+              this.uid=user.uid;
+ this.appPages = [
+   
+    { title: 'Services', url:'/services/'+ this.uid, icon: 'cog' },
+    { title: 'My requests', url: '/activerequest', icon: 'flash' },
 
-    { title: 'Services', url: '/services', icon: 'cog' },
     { title: 'Add vehicle', url: '/addvehicle', icon: 'car' }
 ,
     { title: 'Account', url: '/profile', icon: 'person' },
     { title: 'Contact us', url: '/contact', icon: 'call' }
+ ];
 
-
-
+       } });
     
-  ];
-  public uid;
+ 
   rootPage:any;
 
   constructor( public router:Router,public afAuth: AngularFireAuth) {
