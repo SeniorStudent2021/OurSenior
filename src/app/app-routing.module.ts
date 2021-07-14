@@ -42,6 +42,10 @@ const routes: Routes = [
     path: 'activerequest',
     loadChildren: () => import('./activerequest/activerequest.module').then( m => m.ActiverequestPageModule)
   },
+  {
+    path: 'choosevehicle',
+    loadChildren: () => import('./choosevehicle/choosevehicle.module').then( m => m.ChoosevehiclePageModule)
+  },
 
  
 

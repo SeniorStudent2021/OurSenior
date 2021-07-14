@@ -21,6 +21,7 @@ export class AppComponent {
 
     { title: 'Add vehicle', url: '/addvehicle', icon: 'car' }
 ,
+{ title: 'choose vehicle', url: '/choosevehicle', icon: 'car' },
     { title: 'Account', url: '/profile', icon: 'person' },
     { title: 'Contact us', url: '/contact', icon: 'call' }
  ];

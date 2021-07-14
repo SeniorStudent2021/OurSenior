@@ -1,9 +1,48 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>addvehicle</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-toolbar  class="background">
+  <ion-buttons slot="start">
+    <ion-menu-button></ion-menu-button>
+  </ion-buttons>
+</ion-toolbar>
+<ion-content class="back">
 
-<ion-content>
 
-</ion-content>
+<ion-content class="background">
+
+
+  <br><br> <br><br> 
+<h2 class="top">Add a Vehicle </h2><br><br>
+<h3>&nbsp;  &nbsp;  &nbsp;  &nbsp;   Car Company</h3>
+    <ion-item class="roundedInput">
+     
+      <ion-input [(ngModel)]="company" placeholder="GMC/Honda/Toyota">  </ion-input><br>
+    </ion-item>
+   <h3> &nbsp;  &nbsp;  &nbsp;  &nbsp;  Car series</h3>
+     
+      <ion-item class="roundedInput">
+
+    <ion-input  [(ngModel)]= "series"  placeholder="Yukon /Accorad / Camery ">  </ion-input>
+    </ion-item>
+    <br>
+    <h3> &nbsp;  &nbsp;  &nbsp;  &nbsp; Model year</h3>
+    <ion-item class="roundedInput">
+<ion-input  [(ngModel)]= "year"  placeholder="2017/2018/2019 ">  </ion-input>
+  </ion-item>
+  <br>
+ <h3> &nbsp;  &nbsp;  &nbsp;  &nbsp; Plate No</h3>
+  <ion-item class="roundedInput">
+
+      <ion-input  [(ngModel)]= "Plate"  placeholder="22215/77895 ">  </ion-input>
+      </ion-item>
+      <br>
+    
+   &nbsp;  &nbsp;  &nbsp;  &nbsp; 
+   &nbsp;  &nbsp;  &nbsp;  &nbsp;  
+    &nbsp;  &nbsp;  &nbsp;  &nbsp;<ion-button  style="text-align:center"> Add Vehicle </ion-button>
+
+
+
+
+
+    
+
+  </ion-content>
