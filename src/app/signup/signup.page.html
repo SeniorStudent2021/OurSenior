@@ -1,9 +1,41 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>signup</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+  
+     
+  
+    </ion-buttons>
+    <ion-title></ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="background">
 
+  <br><br> <br><br> 
+ <h2> Sign Up</h2>
+ <br>
+  <ion-item class="roundedInput">
+    <ion-input [(ngModel)]="Name" placeholder="Enter your full name">  </ion-input><br>
+  </ion-item>
+<br>
+  <ion-item class="roundedInput">
+  <ion-input [(ngModel)]="email" placeholder="Enter your Email">  </ion-input><br>
+</ion-item>
+<br>
+<ion-item class="roundedInput">
+  <ion-input [(ngModel)]="mobile" placeholder="Enter your mobile number">  </ion-input><br>
+</ion-item>
+<br>
+<ion-item class="roundedInput">
+  <ion-input [(ngModel)]="password" placeholder="Enter password">  </ion-input><br>
+</ion-item>
+<br>
+<ion-item class="roundedInput">
+  <ion-input [(ngModel)]="confirmpassword" placeholder="Confirm password">  </ion-input><br>
+</ion-item>
+<br>
+
+ <ion-button style="text-align:center" > Register </ion-button>
+ <ion-label>Already have an account? <a class="link" href="login">sign in</a></ion-label>
 </ion-content>

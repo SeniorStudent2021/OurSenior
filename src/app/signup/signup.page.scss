@@ -1,0 +1,77 @@
+.roundedInput {
+    font-family:poppins;
+ion-input{
+    font-family:poppins;
+  
+}
+left: 8%;    width: 85%;
+    --border-color: white;
+    --border-radius: 30px;
+    --border-width: 1px;
+    --box-shadow: 2px rgb(255, 255, 255);
+    --highlight-height: 0;
+    --background: #ffffff;
+   }
+ .background{
+
+    font-family:poppins;
+
+       --background:#f3f6ff;
+       --ion-background-color:#f3f6ff;
+      
+   }
+   ion-menu-button{
+    color:#232E43;
+    
+    }
+
+   ion-button{
+    font-family:poppins;
+    position: absolute;
+    width: 273px;
+    height: 45px;
+    left: 48px;
+   
+    color: #ffffff;
+    font-weight: bold;
+    --border-color: white;
+    --border-radius: 30px;
+    --border-width: 1px;
+    --box-shadow: 2px rgb(255, 255, 255);
+    --highlight-height: 0;
+    font-size: 18px;
+    --background: #232E43;
+   } 
+   h2{
+    font-family:poppins;
+
+       text-align: center;
+       font-size: 40px;
+       font-weight:700 ;
+       color: #04AEB0;
+   }
+
+   ion-toolbar {
+    --background: #f3f6ff;
+  }
+  ion-label{
+    position: absolute;
+    width: 219px;
+    height: 20px;
+    left: 73px;
+    top: 620px;
+    
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 19px;
+    /* identical to box height */
+    
+    
+    color: #04AEB0;
+
+  }
+  .link {
+    color: #04AEB0;
+  }
