@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Data } from '@angular/router';
+import { AlertController } from '@ionic/angular';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-profile',
@@ -8,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProfilePage implements OnInit {
 
-  constructor(public route:ActivatedRoute) { }
+  constructor(public route:ActivatedRoute, public datasrv:DataService, public alertCtrl:AlertController) { }
 public sub;
 public id;
   ngOnInit() {
@@ -19,5 +21,29 @@ public id;
 
   });
   }
+
+
+  async update(x){
+    let alert =await  this.alertCtrl.create({
+      header: 'Profile updated',
+      cssClass: 'alertcolor',
+      message: 'Your profile have been updated successfully ',
+      buttons: [{
+        text:'OK',
+        role:'ok',
+        cssClass:'alertbutton',
+
+      }]    })      
+  
+    this.datasrv.Updateprofile(x).then(() => {
+     
+      
+        alert.present();
+      });
+    }
+    
+
+
+
 
 }

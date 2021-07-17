@@ -13,10 +13,10 @@ import * as firebase from 'firebase/app';
 
 export interface User {
   id?:string,
-  email:string,
-  name: string,
-  mobile:number,
-  type:any,
+  email?:string,
+  name?: string,
+  mobile?:number,
+  type?:any,
 
 }
 export interface Order{
@@ -116,7 +116,18 @@ export class DataService {
 
   }
 
-   
+  Updateprofile(item:User): Promise<any> {
+
+    return this.usersCollectionRef.doc(item.id).update( {
+        name: item.name, 
+        email :item.email,
+        mobile:item.mobile,
+      
+        
+        });
+
+        
+  }
 
 
 

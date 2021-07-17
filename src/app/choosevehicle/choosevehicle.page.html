@@ -5,12 +5,17 @@
 </ion-toolbar>
 <ion-content class="background">
   <br><br>
-<h2> &nbsp; Choose Vehicle </h2>
+<h2>  Choose Vehicle </h2>
 <br>
+<ng-container *ngFor="let x of datasrv.vehicles|async;">
+  <span *ngIf="x.customerid == id"> 
 <ion-card>
-<p>Car Company:</p>
-<p>Car series:</p> 
-<p>Model year:</p> 
-<p>Plate no:</p> 
+<p> &nbsp; &nbsp;Car Company: {{x.company}}</p>
+<p> &nbsp; &nbsp;Car series: {{x.series}}</p> 
+<p> &nbsp; &nbsp;Model year: {{x.year}}</p> 
+<p> &nbsp; &nbsp;Plate no: {{x.plateno}}</p> 
 </ion-card>
+  </span>
+  
+</ng-container>
 </ion-content>

@@ -23,7 +23,7 @@ export class AddvehiclePage implements OnInit {
     }
   
 async addvehicle(company,series,year,plate){
-  this.datasrv.vehiclesCollectionRef.doc(this.id).set({
+  this.datasrv.vehiclesCollectionRef.add({
 
     customerid:this.id,
     company:company,

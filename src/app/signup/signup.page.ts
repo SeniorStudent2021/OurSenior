@@ -50,8 +50,10 @@ export class SignupPage implements OnInit {
        this.item={id:respone.user.uid,email:email,type:"customer",name:name,mobile:mobile};
     
         this.datasrv.usersCollectionRef.doc(respone.user.uid).set(this.item)
-       
+         this.afAuth.signInWithEmailAndPassword(email,password);
+
         return  this.router.navigate(['/services/'+respone.user.uid]); 
+
 
        
        

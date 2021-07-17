@@ -8,13 +8,15 @@
 </ion-toolbar>
 <ion-content class="background">
   <br><br>
-  <h2> profile</h2>
+  <ng-container *ngFor="let x of datasrv.users|async;">
+  <span *ngIf="x.id == id"> 
+    <h2> {{x.name}}'s profile</h2>
 
 <br><br>
  <h3>  &nbsp;  &nbsp;  &nbsp;Name:</h3>
 
   <ion-item class="roundedInput">
-    <ion-input [(ngModel)]="x">  </ion-input><br>
+    <ion-input [(ngModel)]="x.name"> <ion-icon  name="create-outline"></ion-icon> </ion-input><br>
   </ion-item>
 
     <br>
@@ -22,17 +24,19 @@
 
     <ion-item class="roundedInput">
 
-  <ion-input  [(ngModel)]= "x" type="email" >  </ion-input>
+  <ion-input   type="email" disabled > {{x.email}} </ion-input>
   </ion-item>
 <br>
  <h3> &nbsp;  &nbsp;  &nbsp;Mobile number:</h3>
 
   <ion-item class="roundedInput">
 
-    <ion-input  [(ngModel)]= "x" type="number" >  </ion-input>
+    <ion-input  [(ngModel)]= "x.mobile" type="number" >  <ion-icon  name="create-outline"></ion-icon></ion-input>
     </ion-item>
      <br>
     &nbsp;  &nbsp;     &nbsp;  &nbsp;    &nbsp;  &nbsp;  &nbsp;     &nbsp;  &nbsp;
-       &nbsp;  &nbsp; &nbsp;  &nbsp;<ion-button  style="text-align:center">Update profile </ion-button>
-
+       &nbsp;  &nbsp; &nbsp;  &nbsp;<ion-button (click)="update(x)"  style="text-align:center">Update profile </ion-button>
+    </span>
+      </ng-container>
+      
 </ion-content>
