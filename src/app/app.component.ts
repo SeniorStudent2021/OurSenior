@@ -21,20 +21,13 @@ export class AppComponent {
 
     { title: 'Add vehicle', url: '/addvehicle/'+ this.uid, icon: 'car' }
 ,
-<<<<<<< HEAD
+
 { title: 'choose vehicle', url: '/choosevehicle/'+ this.uid, icon: 'car' },
     { title: 'Account', url: '/profile/'+ this.uid, icon: 'person' },
     { title: 'Contact us', url: '/contact/'+ this.uid, icon: 'call' },
     { title: 'Sign Up', url: '/signup', icon: 'person' },
-=======
-{ title: 'choose vehicle', url: '/choosevehicle', icon: 'car' },
-    { title: 'Account', url: '/profile', icon: 'person' },
-    { title: 'Contact us', url: '/contact', icon: 'call' },
-    { title: 'Sign Up', url: '/signup', icon: 'person' }
-<<<<<<< Updated upstream
-=======
->>>>>>> 52b53cd0586be7213c2b1ca6f816b8181b327a40
->>>>>>> Stashed changes
+
+
  ];
 
        } });
