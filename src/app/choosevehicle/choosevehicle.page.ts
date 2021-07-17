@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-choosevehicle',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./choosevehicle.page.scss'],
 })
 export class ChoosevehiclePage implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  constructor(public route:ActivatedRoute) { }
+  public sub;
+  public id;
+    ngOnInit() {
+  
+      this.sub = this.route.params.subscribe(params => {
+        this.id = params['id']; 
+  
+  
+    });
+    }
+  
 }

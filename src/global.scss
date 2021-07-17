@@ -31,3 +31,23 @@
     font-family:'poppins';    //This is what we are going to call
     src: url('assets/fonts/light.ttf');
   }
+  .alertcolor .alert-wrapper {
+    color: white !important;
+    font-family: poppins !important;
+    --color: white !important;
+  
+    background: #7bbdbe ;
+    
+    
+  } 
+
+  .alert-head{
+    color: white;
+  }
+  .alertbutton{
+    font-family: poppins !important;
+    color: rgb(27, 24, 24) !important;
+
+  }
+
+ 

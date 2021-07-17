@@ -32,23 +32,23 @@ const routes: Routes = [
     loadChildren: () => import('./contact/contact.module').then( m => m.ContactPageModule)
   },
   {
-    path: 'addvehicle',
+    path: 'addvehicle/:id',
     loadChildren: () => import('./addvehicle/addvehicle.module').then( m => m.AddvehiclePageModule)
   },
   {
-    path: 'profile',
+    path: 'profile/:id',
     loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
   },
   {
-    path: 'activerequest',
+    path: 'activerequest/:id',
     loadChildren: () => import('./activerequest/activerequest.module').then( m => m.ActiverequestPageModule)
   },
   {
-    path: 'choosevehicle',
+    path: 'choosevehicle/:id',
     loadChildren: () => import('./choosevehicle/choosevehicle.module').then( m => m.ChoosevehiclePageModule)
   },
   {
-    path: 'location',
+    path: 'location/:id',
     loadChildren: () => import('./location/location.module').then( m => m.LocationPageModule)
   },
 

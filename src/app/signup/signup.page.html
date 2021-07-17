@@ -1,7 +1,7 @@
 
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+     
   
      
   
@@ -35,6 +35,6 @@
 </ion-item>
 <br>
 
- <ion-button style="text-align:center" > Register </ion-button>
+ <ion-button (click)="signup(Name,email,password,mobile)" style="text-align:center" > Register </ion-button>
  <ion-label>Already have an account? <a class="link" href="login">sign in</a></ion-label>
 </ion-content>

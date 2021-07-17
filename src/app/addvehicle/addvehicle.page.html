@@ -9,7 +9,7 @@
 <ion-content class="background">
 
 
-  <br><br> <br><br> 
+  <br>
 <h2 class="top">Add a Vehicle </h2><br><br>
 <h3>&nbsp;  &nbsp;  &nbsp;  &nbsp;   Car Company</h3>
     <ion-item class="roundedInput">
@@ -31,13 +31,13 @@
  <h3> &nbsp;  &nbsp;  &nbsp;  &nbsp; Plate No</h3>
   <ion-item class="roundedInput">
 
-      <ion-input  [(ngModel)]= "Plate"  placeholder="22215/77895 ">  </ion-input>
+      <ion-input  [(ngModel)]= "plate"  placeholder="22215/77895 ">  </ion-input>
       </ion-item>
       <br>
     
-   &nbsp;  &nbsp;  &nbsp;  &nbsp; 
+   &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; 
    &nbsp;  &nbsp;  &nbsp;  &nbsp;  
-    &nbsp;  &nbsp;  &nbsp;  &nbsp;<ion-button  style="text-align:center"> Add Vehicle </ion-button>
+    &nbsp;  &nbsp;  &nbsp;  &nbsp;<ion-button (click)="addvehicle(company,series,year,plate)" style="text-align:center"> Add Vehicle </ion-button>
 
 
 

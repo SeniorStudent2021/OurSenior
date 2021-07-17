@@ -5,11 +5,17 @@
         <ion-list id="inbox-list">
           <ion-list-header>App Name</ion-list-header>
          <br><br>
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
+          <ion-menu-toggle auto-hide="false"*ngFor="let p of appPages; let i = index" >
+            <ion-item  routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
               <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
+          </ion-menu-toggle>
+          
+          <ion-menu-toggle class="logout">
+            <ion-item lines="none">
+                 <ion-icon (click)="logout()" name="log-out-outline"></ion-icon> &nbsp; <ion-label (click)="logout()">  &nbsp; &nbsp;Sign out</ion-label>
+          </ion-item>
           </ion-menu-toggle>
         </ion-list>
 

@@ -189,6 +189,7 @@
     --ion-toolbar-background: var(--ion-color-step-150);
     --ion-toolbar-border-color: var(--ion-color-step-250);
   }
+  $alert-md-background-color:#232E43;
 
 
   /*
@@ -233,4 +234,10 @@
 
     --ion-card-background: #1e1e1e;
   }
+  .alertcolor {
+   
+    $alert-md-background-color:#232E43
+
+  }
 }
+

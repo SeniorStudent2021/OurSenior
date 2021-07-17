@@ -16,7 +16,7 @@ export interface User {
   email:string,
   name: string,
   mobile:number,
-  isAdmin:boolean,
+  type:any,
 
 }
 export interface Order{
