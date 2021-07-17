@@ -35,11 +35,10 @@ ion-title{
                }
             background-color: #04ADB2;}
         img{
-            top: 10px;
-
-            width: 120px;              margin: auto;
-              display: block;
-              height: 100px;
+              
+  bottom: 0px;  
+  margin: auto;
+  display: block;
             }
             .top{
               top: 30px;
@@ -71,18 +70,20 @@ ion-title{
   ion-card{
    ion-item{
     --ion-background-color: #232E43;;
-     color: #232E43;;
+     color: #232E43;
+     
    }
    
     background-color:  #232E43;
     width: 340px;
-    height: 150px;
+    height: 170px;
   }
   img{
-  bottom: 0px;  width: 120px;
+    
+  bottom: 0px;  
     margin: auto;
     display: block;
-    height: 100px;
+  
   }
   .top{
     top: 30px;
@@ -112,4 +113,22 @@ ion-menu-button{
 color:#232E43;
 
 }
+  }
+  ion-label{
+
+    position: absolute;
+width: 116px;
+height: 36px;
+left: 153px;
+top: 140px;
+
+font-family: Poppins;
+font-style: normal;
+font-weight: bold;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+
+
+color: #ffffff;
   }
