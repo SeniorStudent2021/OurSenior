@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-services',
@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ServicesPage implements OnInit {
 
-  constructor(public route:ActivatedRoute) { }
+  constructor(public route:ActivatedRoute, public router:Router) { }
 public sub;
 public id;
   ngOnInit() {
@@ -19,7 +19,14 @@ public id;
 
   });
   }
+ tow(){
+  this.router.navigate(['/choosevehicle/'+this.id+'/Tow']); 
 
+ }
+ door(){
+  this.router.navigate(['/choosevehicle/'+this.id+'/Door lock']); 
+
+ }
 
 
 }

@@ -24,7 +24,7 @@ export class AppComponent {
 
 { title: 'choose vehicle', url: '/choosevehicle/'+ this.uid, icon: 'car' },
     { title: 'Account', url: '/profile/'+ this.uid, icon: 'person' },
-    { title: 'Contact us', url: '/contact/'+ this.uid, icon: 'call' },
+    { title: 'Contact us', url: '/contact', icon: 'call' },
     { title: 'Sign Up', url: '/signup', icon: 'person' },
 
 
@@ -33,14 +33,15 @@ export class AppComponent {
        } });
     
  
-  rootPage:any;
+  rootPage:string;
 
   constructor( public router:Router,public afAuth: AngularFireAuth) {
 
     const authObserver = afAuth.authState.subscribe( 
       user => {
        if (user) {
-        this.rootPage = 'services/'+ user.uid;
+        this.rootPage = '/services/'+ user.uid;
+
         authObserver.unsubscribe();
        } else {
         this.rootPage = 'login';
