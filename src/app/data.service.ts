@@ -16,25 +16,29 @@ export interface User {
   email?:string,
   name?: string,
   mobile?:number,
-  type?:any,
+  type?:any;
 
 }
 export interface Order{
-  customerid?:any;
-  type?:any;
+  customerid?:any,
+  type?:any ,
   status?: any,
   date?:any,
   address?:any,
+  notes?:any,
+  car?:any,
+  latitude?:any,
+  longtitude?:any;
  
 
 
 }
 export interface Vehicle{
-  customerid?:any;
-  company?:any;
+  customerid?:any,
+  company?:any,
   series?: any,
   year?:any,
-  plateno?:any,
+  plateno?:any;
 
 }
 
@@ -130,7 +134,17 @@ export class DataService {
   }
 
 
-
+addorder(customer,type,car,lat,long,notes){
+  return this.ordersCollectionRef.add({
+    customerid:customer,
+    type:type,
+    car:car.id,
+    latitude:lat,
+    longtitude:long,
+    notes:notes,
+    status:"pending",
+      });
+}
 
 
 

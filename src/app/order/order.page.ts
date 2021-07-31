@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../data.service';
 import {MapInfoWindow, MapMarker} from '@angular/google-maps';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-order',
@@ -21,6 +22,7 @@ public id;
 public type;
 public car; public latit=0;
   public longit=0;
+  public notes;
   public link;
   ngOnInit() {
   
@@ -82,7 +84,7 @@ public car; public latit=0;
   }
 
    confirm(notes){
-     
+    this.datasrv.addorder(this.id,this.type,this.car,this.latit,this.longit,this.notes);
 
  }
 }
