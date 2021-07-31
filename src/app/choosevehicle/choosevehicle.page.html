@@ -10,7 +10,7 @@
 <br>
 <ng-container *ngFor="let x of datasrv.vehicles|async;">
   <span *ngIf="x.customerid == id"> 
-<ion-card>
+<ion-card (click)="car(x)">
 <p> &nbsp; &nbsp;Car Company: {{x.company}}</p>
 <p> &nbsp; &nbsp;Car series: {{x.series}}</p> 
 <p> &nbsp; &nbsp;Model year: {{x.year}}</p> 

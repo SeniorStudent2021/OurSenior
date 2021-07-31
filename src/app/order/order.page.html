@@ -1,0 +1,59 @@
+<ion-toolbar  class="background">
+  <ion-buttons slot="start">
+    <ion-menu-button></ion-menu-button>
+  </ion-buttons>
+</ion-toolbar>
+<ion-content class="background">
+
+<h2>{{type}} request</h2>
+
+<br><br>
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;Selected Vehicle:</h3>
+<ng-container *ngFor="let x of datasrv.vehicles|async;">
+  <span *ngIf="x.customerid == id"> 
+  <span *ngIf="x.id == car"> 
+
+<ion-card >
+<p> &nbsp; &nbsp;Car Company: {{x.company}}</p>
+<p> &nbsp; &nbsp;Car series: {{x.series}}</p> 
+<p> &nbsp; &nbsp;Model year: {{x.year}}</p> 
+<p> &nbsp; &nbsp;Plate no: {{x.plateno}}</p> 
+</ion-card>
+  </span>
+  </span>
+  
+</ng-container>
+
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;Select location:</h3>
+<center>
+  <ion-card>
+<google-map height="400px"
+            width="350px"
+            [center]="center"
+            [zoom]="zoom"
+            (mapClick)="addMarker($event)"
+            (mapMousemove)="move($event)"
+            (mapRightclick)="removeLastMarker()">
+  <map-marker #marker
+              *ngFor="let markerPosition of markerPositions"
+              [position]="markerPosition"
+              [options]="markerOptions"
+              (mapClick)="openInfoWindow(marker)"></map-marker>
+  <map-info-window>Info Window content</map-info-window>
+</google-map>
+</ion-card>
+</center>
+
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;Additional notes:</h3>
+<center>
+<ion-item class="roundedInput">
+  
+<ion-textarea rows="6" [(ngModel)]="notes" ></ion-textarea>
+</ion-item>
+<br>
+<ion-button (click)="confirm(notes)"> Confirm request </ion-button>
+</center>
+
+
+
+</ion-content>
