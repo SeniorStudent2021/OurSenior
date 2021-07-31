@@ -27,6 +27,18 @@ public id;
   this.router.navigate(['/choosevehicle/'+this.id+'/Door lock']); 
 
  }
+ battery(){
+  this.router.navigate(['/choosevehicle/'+this.id+'/Battery charge']); 
+
+ }
+tire(){
+  this.router.navigate(['/choosevehicle/'+this.id+'/Flat tyre']); 
+
+ }
+fuel(){
+  this.router.navigate(['/choosevehicle/'+this.id+'/Fuel']); 
+
+ }
 
 
 }

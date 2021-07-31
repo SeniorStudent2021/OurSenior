@@ -133,19 +133,41 @@ export class DataService {
         
   }
 
-
+public date;
 addorder(customer,type,car,lat,long,notes){
+  if(notes==null){
+
+
+    this.date=new Date();
+    return this.ordersCollectionRef.add({
+      customerid:customer,
+      type:type,
+      car:car,
+      latitude:lat,
+      longtitude:long,
+      status:"pending",
+      date:this.date.toString()
+        });
+  
+
+
+  }
+  if(notes!=null){
+
+this.date=new Date();
   return this.ordersCollectionRef.add({
     customerid:customer,
     type:type,
-    car:car.id,
+    car:car,
     latitude:lat,
     longtitude:long,
     notes:notes,
     status:"pending",
+    date:this.date.toString()
       });
-}
 
+}
+}
 
 
 }

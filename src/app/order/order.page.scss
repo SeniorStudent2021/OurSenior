@@ -72,4 +72,15 @@
       font-size: 18px;
       --background: #04ADB2;
      } 
-    
+     ion-menu-button{
+      color: #232E43; 
+    }
+    h5{
+      color: #ffffff;
+      ion-icon{
+        right: 0px;
+     bottom: 0px;
+        width: 30px;
+        height: 30px;
+      }
+    }

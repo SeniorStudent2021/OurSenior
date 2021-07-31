@@ -44,6 +44,29 @@
 </ion-card>
 </center>
 
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;Pricing:</h3>
+
+<ion-card>
+  <span *ngIf="type=='Tow'">
+    <h5>&nbsp; &nbsp;Estimated price: &nbsp; &nbsp; 7BD-10BD</h5>
+</span>
+<span *ngIf="type=='Flat tyre'">
+   <h5>&nbsp; &nbsp;Estimated price: &nbsp; &nbsp; 2BD-50BD</h5>
+</span>
+<span *ngIf="type=='Door lock'">
+    <h5>&nbsp; &nbsp;Estimated price: &nbsp; &nbsp; 3BD-5BD</h5>
+</span>
+<span *ngIf="type=='Battery charge'">
+   <h5>&nbsp; &nbsp;Estimated price: &nbsp; &nbsp; 2BD-5BD</h5>
+</span>
+<span *ngIf="type=='Fuel'">
+    <h5>&nbsp; &nbsp;Estimated price: &nbsp; &nbsp; 3BD-5BD</h5>
+</span>
+
+  <h5>&nbsp; &nbsp;Payment method:&nbsp; &nbsp;Cash 
+  </h5>
+</ion-card>
+
 <h3>&nbsp;&nbsp;&nbsp;&nbsp;Additional notes:</h3>
 <center>
 <ion-item class="roundedInput">
@@ -53,6 +76,7 @@
 <br>
 <ion-button (click)="confirm(notes)"> Confirm request </ion-button>
 </center>
+
 
 
 

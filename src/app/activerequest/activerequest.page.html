@@ -21,17 +21,34 @@
 
   <div [ngSwitch]="requests">
     <ion-list lines="none" *ngSwitchCase="'active'">
+      <ng-container *ngFor="let x of datasrv.orders| async;" >
+        <span *ngIf="x.customerid==id">
+          <span *ngIf="x.status!='completed'">
 <ion-card>
-<h3> &nbsp; Towing request- 110929</h3>
-<p> &nbsp; <ion-icon name="calendar-outline"></ion-icon> &nbsp;12-7-2020</p>
-<p>&nbsp; <ion-icon name="navigate-outline"></ion-icon>&nbsp; Manama, Road 32</p>
-
-<p> &nbsp;  <ion-icon name="sync-circle-outline"></ion-icon> &nbsp; Pending</p>
+<h3> &nbsp; {{x.type}} request {{x.id}}</h3>
+<p> &nbsp; <ion-icon name="calendar-outline"></ion-icon> &nbsp;{{x.date | date:'d-M-y h:mm a'}}</p>
+<p> &nbsp;  <ion-icon name="sync-circle-outline"></ion-icon> &nbsp; {{x.status}}</p>
 </ion-card>
-
+</span>
+</span>
+</ng-container>
     </ion-list>
   </div>  
 
-
+  <div [ngSwitch]="requests">
+    <ion-list lines="none" *ngSwitchCase="'history'">
+      <ng-container *ngFor="let x of datasrv.orders| async;" >
+        <span *ngIf="x.customerid==id">
+          <span *ngIf="x.status=='completed'">
+<ion-card>
+<h3> &nbsp; {{x.type}} request- {{x.id}}</h3>
+<p> &nbsp; <ion-icon name="calendar-outline"></ion-icon> &nbsp;{{x.date | date:'d-M-y h:mm a'}}</p>
+<p> &nbsp;  <ion-icon name="sync-circle-outline"></ion-icon> &nbsp; {{x.status}}</p>
+</ion-card>
+</span>
+</span>
+</ng-container>
+    </ion-list>
+  </div>  
 
 </ion-content>
