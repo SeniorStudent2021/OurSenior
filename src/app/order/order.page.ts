@@ -5,6 +5,7 @@ import { DataService } from '../data.service';
 import {MapInfoWindow, MapMarker} from '@angular/google-maps';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { ThrowStmt } from '@angular/compiler';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-order',
@@ -13,7 +14,7 @@ import { ThrowStmt } from '@angular/compiler';
 })
 export class OrderPage implements OnInit {
 
-  constructor(public datasrv:DataService,public route:ActivatedRoute,public geolocation: Geolocation,) { 
+  constructor(public alertCtrl:AlertController,public datasrv:DataService,public route:ActivatedRoute,public geolocation: Geolocation,) { 
           
 
   }
@@ -83,8 +84,36 @@ public car; public latit=0;
     this.markerPositions.pop();
   }
 
-   confirm(notes){
-    this.datasrv.addorder(this.id,this.type,this.car,this.latit,this.longit,this.notes);
+  async confirm(notes){
+    let alert =await  this.alertCtrl.create({
+      header: 'Confirmation',
+      cssClass: 'alertcolor',
+      message: 'Your request has been submitted ',
+      buttons: [{
+        text:'OK',
+        role:'ok',
+        cssClass:'alertbutton',
+
+      }]    })
+      let alert2 =await  this.alertCtrl.create({
+        header: 'Error',
+        cssClass: 'alertcolor',
+
+        message: ' Request not submitted, please try again ',
+        buttons: [{
+          text:'OK',
+          role:'ok',
+          cssClass:'alertbutton',
+
+        }
+        ]
+});
+    this.datasrv.addorder(this.id,this.type,this.car,this.latit,this.longit,this.notes).then((respone)=>{
+      alert.present();    
+})
+.catch((err)=>{
+alert2.present();
+ }) 
 
  }
 }
