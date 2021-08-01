@@ -15,8 +15,25 @@ import { AlertController } from '@ionic/angular';
 export class OrderPage implements OnInit {
 
   constructor(public alertCtrl:AlertController,public datasrv:DataService,public route:ActivatedRoute,public geolocation: Geolocation,) { 
-          
 
+          this.mapTypeId= google.maps.MapTypeId.SATELLITE;
+    this.geolocation.getCurrentPosition().then((resp) => {
+     this.latit=  resp.coords.latitude;
+     this.longit= resp.coords.longitude;
+     this.markerPositions.push({lat: this.latit, lng: this.longit});
+     this.center= {lat: this.latit, lng:this.longit};
+  
+     this.link="https://maps.google.com/?q="+this.latit+","+this.longit;
+     }).catch((error) => {
+       console.log('Error getting location', error);
+     });
+     
+     let watch = this.geolocation.watchPosition();
+     watch.subscribe((data) => {
+      // data can be a set of coordinates, or an error (if an error occurred).
+      // data.coords.longitude
+     });
+  
   }
 public sub;
 public id;
@@ -33,7 +50,7 @@ public car; public latit=0;
       this.car=params['car'];
 
   });
-  this.mapTypeId= google.maps.MapTypeId.SATELLITE;
+        this.mapTypeId= google.maps.MapTypeId.SATELLITE;
   this.geolocation.getCurrentPosition().then((resp) => {
    this.latit=  resp.coords.latitude;
    this.longit= resp.coords.longitude;
@@ -50,6 +67,7 @@ public car; public latit=0;
     // data can be a set of coordinates, or an error (if an error occurred).
     // data.coords.longitude
    });
+
   }
 
   @ViewChild(MapInfoWindow, {static: false}) infoWindow: MapInfoWindow;
