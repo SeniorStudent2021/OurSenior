@@ -37,7 +37,7 @@ public car; public latit=0;
   this.geolocation.getCurrentPosition().then((resp) => {
    this.latit=  resp.coords.latitude;
    this.longit= resp.coords.longitude;
-   this.markerPositions.push({lat: this.latit, lng: this.longit})
+   this.markerPositions.push({lat: this.latit, lng: this.longit});
    this.center= {lat: this.latit, lng:this.longit};
 
    this.link="https://maps.google.com/?q="+this.latit+","+this.longit;
