@@ -56,6 +56,23 @@
       --highlight-height: 0;
       --background: none;
      }
+     .locbutton{
+      ion-button{
+        font-family:poppins;
+    
+           left: 30%;
+    width: 80%;
+       color: #ffffff;
+        font-weight: bold;
+        --border-color: white;
+        --border-radius: 30px;
+        --border-width: 1px;
+        --box-shadow: 2px rgb(255, 255, 255);
+        --highlight-height: 0;
+        font-size: 13px;
+        --background: #232E43;
+       } 
+     }
      ion-button{
       font-family:poppins;
   

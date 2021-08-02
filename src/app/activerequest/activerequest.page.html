@@ -41,7 +41,7 @@
         <span *ngIf="x.customerid==id">
           <span *ngIf="x.status=='completed'">
 <ion-card>
-<h3> &nbsp; {{x.type}} request- {{x.id}}</h3>
+<h3> &nbsp; {{x.type}} request {{x.id}}</h3>
 <p> &nbsp; <ion-icon name="calendar-outline"></ion-icon> &nbsp;{{x.date | date:'d-M-y h:mm a'}}</p>
 <p> &nbsp;  <ion-icon name="sync-circle-outline"></ion-icon> &nbsp; {{x.status}}</p>
 </ion-card>
