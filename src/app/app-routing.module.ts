@@ -52,7 +52,11 @@ const routes: Routes = [
   {
     path: 'order/:id/:type/:car',
     loadChildren: () => import('./order/order.module').then( m => m.OrderPageModule)
+  },  {
+    path: 'resetpass',
+    loadChildren: () => import('./resetpass/resetpass.module').then( m => m.ResetpassPageModule)
   },
+
 
 
  

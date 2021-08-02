@@ -1,0 +1,23 @@
+<ion-toolbar  class="background">
+  <ion-buttons slot="start">
+    <ion-back-button></ion-back-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content class="background">
+<br><br>
+  <h2 class="top">Reset password </h2><br><br>
+
+  <ion-item class="roundedInput">
+    <ion-input [(ngModel)]="username" placeholder="Enter your email">  </ion-input><br>
+  </ion-item> <br>
+  &nbsp;  &nbsp;  &nbsp;  &nbsp; 
+  &nbsp;  &nbsp;  &nbsp;  &nbsp;  
+   &nbsp;  &nbsp;  &nbsp;  &nbsp;<ion-button (click)="reset(username)" style="text-align:center">Reset password </ion-button>
+
+  <ion-item lines="none">
+    &nbsp;  &nbsp;   &nbsp;  &nbsp; 
+     &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  <ion-label > <a href="\login" >Back to login page</a> </ion-label> 
+  </ion-item>
+  
+</ion-content>

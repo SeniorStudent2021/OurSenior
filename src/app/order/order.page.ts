@@ -71,7 +71,6 @@ public car; public latit=0;
   }
 
   @ViewChild(MapInfoWindow, {static: false}) infoWindow: MapInfoWindow;
-
   center;
   markerOptions = {draggable: false};
   markerPositions: google.maps.LatLngLiteral[] = [];
