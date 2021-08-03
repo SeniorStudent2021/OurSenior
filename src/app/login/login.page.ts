@@ -21,7 +21,7 @@ export class LoginPage implements OnInit {
 
     this.afAuth.signInWithEmailAndPassword(username,password)
     .then((response)=>{
-              this.router.navigate(['/services',response.user.uid]);
+              this.router.navigate(['/home',response.user.uid]);
 
     }
     )

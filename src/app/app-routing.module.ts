@@ -5,7 +5,7 @@ const routes: Routes = [
   
   {
     path: '',
-    loadChildren: () => import('./services/services.module').then( m => m.ServicesPageModule)
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
 
   },
  
@@ -52,10 +52,35 @@ const routes: Routes = [
   {
     path: 'order/:id/:type/:car',
     loadChildren: () => import('./order/order.module').then( m => m.OrderPageModule)
-  },  {
+  },
+  {
     path: 'resetpass',
     loadChildren: () => import('./resetpass/resetpass.module').then( m => m.ResetpassPageModule)
   },
+  {
+    path: 'providerrequest/:id',
+    loadChildren: () => import('./providerrequest/providerrequest.module').then( m => m.ProviderrequestPageModule)
+  },
+  {
+    path: 'payment/:id',
+    loadChildren: () => import('./payment/payment.module').then( m => m.PaymentPageModule)
+  },
+  {
+    path: 'details/:id/:lat/:long/:prov',
+    loadChildren: () => import('./details/details.module').then( m => m.DetailsPageModule)
+  },
+  {
+    path: 'current/:id',
+    loadChildren: () => import('./current/current.module').then( m => m.CurrentPageModule)
+  },
+  {
+    path: 'currentdetails/:id/:lat/:long/:prov',
+    loadChildren: () => import('./currentdetails/currentdetails.module').then( m => m.CurrentdetailsPageModule)
+  },
+
+
+
+
 
 
 

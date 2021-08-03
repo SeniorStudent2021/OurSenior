@@ -77,7 +77,7 @@
       font-family:poppins;
   
          left: 30%;
-  width: 40%;
+  width: 50%;
      color: #ffffff;
       font-weight: bold;
       --border-color: white;
@@ -86,7 +86,9 @@
       --box-shadow: 2px rgb(255, 255, 255);
       --highlight-height: 0;
       font-size: 18px;
+      font-weight: 600;
       --background: #04ADB2;
+      height: 40px;
      } 
    
     h5{
@@ -99,4 +101,17 @@
       }
       font-family: poppins;
     }
+    ion-item{
+        ion-label{
+        color:#232E43; ;
+        font-family:poppins;
+       font-size: 23px; 
+        } 
+    }
+    ion-input{
+        color:#232E43; ;
+        font-family:poppins;
+       font-size: 20px; 
+    }
+   
   

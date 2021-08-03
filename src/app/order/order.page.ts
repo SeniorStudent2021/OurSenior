@@ -85,6 +85,10 @@ public car; public latit=0;
 
     this.markerPositions=[];
     this.markerPositions.push(event.latLng.toJSON());
+    this.latit=event.latLng.toJSON().lat;
+    this.longit=event.latLng.toJSON().lng;
+    this.center= {lat: this.latit, lng:this.longit};
+
    this.link="https://maps.google.com/?q="+event.latLng.toJSON().lat+","+event.latLng.toJSON().lng;
 
   }

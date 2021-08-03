@@ -1,0 +1,22 @@
+<ion-toolbar  class="background">
+  <ion-buttons slot="start">
+    <ion-menu-button></ion-menu-button>
+  </ion-buttons>
+</ion-toolbar>
+<ion-content class="background">
+
+<h2>Active requests</h2>
+<br>
+  <ng-container *ngFor="let x of datasrv.orders| async;" >
+   <span *ngIf="x.providerid==id">
+      <span *ngIf="x.status=='serving'">
+<ion-card (click)="activedetails(x.id,x.latitude,x.longtitude)">
+<h3> &nbsp; {{x.type}} request {{x.id}}</h3>
+<p> &nbsp; <ion-icon name="calendar-outline"></ion-icon> &nbsp;{{x.date | date:'d-M-y h:mm a'}}</p>
+<p> &nbsp;  <ion-icon name="sync-circle-outline"></ion-icon> &nbsp; {{x.status}}</p>
+</ion-card>
+</span>
+</span>
+</ng-container>
+
+</ion-content>

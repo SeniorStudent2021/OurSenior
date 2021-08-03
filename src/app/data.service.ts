@@ -28,8 +28,9 @@ export interface Order{
   notes?:any,
   car?:any,
   latitude?:any,
-  longtitude?:any;
- 
+  longtitude?:any,
+  providerid?:any;
+  price?:any;
 
 
 }
@@ -170,4 +171,26 @@ this.date=new Date();
 }
 
 
+updateorder(orderid,provid): Promise<any> {
+
+  return this.ordersCollectionRef.doc(orderid).update( {
+    status:"serving",
+    providerid:provid
+
+      
+      });
+
+      
+}
+completeorder(orderid,price): Promise<any> {
+
+  return this.ordersCollectionRef.doc(orderid).update( {
+    status:"completed",
+    price:price
+
+      
+      });
+
+      
+}
 }

@@ -4,6 +4,25 @@
   </ion-buttons>
 </ion-toolbar>
 
-<ion-content>
+<ion-content class="background">
+
+  <ng-container *ngFor="let x of datasrv.users|async;">
+    <span *ngIf="x.id == id" >
+    <span *ngIf="x.type == 'provider'"> 
+      <h2> Welcome provider</h2>
+
+  </span> 
+
+
+
+  <span *ngIf="x.type =='customer'">
+
+
+<h2>Welcome customer!</h2>
+
+
+  </span>
+</span>
+</ng-container>
 
 </ion-content>

@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import {MapInfoWindow, MapMarker} from '@angular/google-maps';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import {Component, ViewChild} from '@angular/core';
+import { DataService } from './data.service';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -11,6 +12,8 @@ import {Component, ViewChild} from '@angular/core';
 export class AppComponent {
    public uid;
    public appPages;
+   public appPages2;
+
  public authObserver = this.afAuth.authState.subscribe( 
             user => {
              if (user) {
@@ -30,6 +33,17 @@ export class AppComponent {
 
 
  ];
+ this.appPages2 = [
+  { title: 'Active requests', url: '/current/'+ this.uid, icon: 'flash' },
+
+  { title: 'Pending requests', url:'/providerrequest/'+ this.uid, icon: 'hourglass' },
+  { title: 'Payment statement', url: '/payment/'+ this.uid, icon: 'cash' },
+
+  { title: 'Account', url: '/profile/'+ this.uid, icon: 'person' },
+  { title: 'Contact us', url: '/contact', icon: 'call' } 
+
+
+];
 
        } });
     
@@ -38,13 +52,13 @@ export class AppComponent {
   public latit=0;
   public longit=0;
   public link;
-  constructor(public geolocation: Geolocation, public router:Router,public afAuth: AngularFireAuth) {
+  constructor(public geolocation: Geolocation, public router:Router,public afAuth: AngularFireAuth, public datasrv:DataService) {
 
     const authObserver = afAuth.authState.subscribe( 
       user => {
        if (user) {
 
-        this.rootPage = '/services/'+ user.uid;
+        this.rootPage = '/home/'+ user.uid;
 
         authObserver.unsubscribe();
        } else {

@@ -2,15 +2,31 @@
   <ion-split-pane contentId="main-content">
     <ion-menu  contentId="main-content" type="overlay">
       <ion-content>
+
         <ion-list id="inbox-list">
           <ion-list-header>Tasleeh</ion-list-header>
          <br><br>
+         <ng-container *ngFor="let x of datasrv.users|async">
+           <span *ngIf="x.id==uid">
+           <span *ngIf="x.type=='customer'">
           <ion-menu-toggle auto-hide="false"*ngFor="let p of appPages; let i = index" >
             <ion-item  routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
               <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
+        </span>
+        <span *ngIf="x.type=='provider'">
+          <ion-menu-toggle auto-hide="false"*ngFor="let p of appPages2; let i = index" >
+            <ion-item  routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
+              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+              <ion-label>{{ p.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </span>
+      </span>
+        </ng-container>
+
           
           <ion-menu-toggle class="logout">
             <ion-item lines="none">
@@ -18,7 +34,6 @@
           </ion-item>
           </ion-menu-toggle>
         </ion-list>
-
        
       </ion-content>
     </ion-menu>
