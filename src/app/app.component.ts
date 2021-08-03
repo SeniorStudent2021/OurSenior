@@ -23,10 +23,10 @@ export class AppComponent {
     { title: 'Add vehicle', url: '/addvehicle/'+ this.uid, icon: 'car' }
 ,
 
-{ title: 'choose vehicle', url: '/choosevehicle/'+ this.uid, icon: 'car' },
+
     { title: 'Account', url: '/profile/'+ this.uid, icon: 'person' },
     { title: 'Contact us', url: '/contact', icon: 'call' },
-    { title: 'Sign Up', url: '/signup', icon: 'person' },
+    
 
 
  ];
@@ -43,6 +43,7 @@ export class AppComponent {
     const authObserver = afAuth.authState.subscribe( 
       user => {
        if (user) {
+
         this.rootPage = '/services/'+ user.uid;
 
         authObserver.unsubscribe();

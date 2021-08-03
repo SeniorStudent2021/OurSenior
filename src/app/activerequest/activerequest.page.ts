@@ -8,8 +8,10 @@ import { DataService } from '../data.service';
   styleUrls: ['./activerequest.page.scss'],
 })
 export class ActiverequestPage implements OnInit {
-
-  constructor(public route:ActivatedRoute,public datasrv:DataService) { }
+public requests;
+  constructor(public route:ActivatedRoute,public datasrv:DataService) {
+    this.requests="active";
+   }
 public sub;
 public id;
   ngOnInit() {

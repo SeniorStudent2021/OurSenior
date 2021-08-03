@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewChild} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
 import {MapInfoWindow, MapMarker} from '@angular/google-maps';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
@@ -14,7 +14,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class OrderPage implements OnInit {
 
-  constructor(public alertCtrl:AlertController,public datasrv:DataService,public route:ActivatedRoute,public geolocation: Geolocation,) { 
+  constructor(public router:Router,public alertCtrl:AlertController,public datasrv:DataService,public route:ActivatedRoute,public geolocation: Geolocation,) { 
 
           this.mapTypeId= google.maps.MapTypeId.SATELLITE;
     this.geolocation.getCurrentPosition().then((resp) => {
@@ -126,7 +126,9 @@ public car; public latit=0;
         ]
 });
     this.datasrv.addorder(this.id,this.type,this.car,this.latit,this.longit,this.notes).then((respone)=>{
-      alert.present();    
+      alert.present();   
+      this.router.navigate(['/activerequest/'+this.id]); 
+
 })
 .catch((err)=>{
 alert2.present();
