@@ -11,7 +11,11 @@
 
 <ion-content class="background">
 
-  <br><br> <br><br> 
+  <br><br> <center>
+    <div class="logo">
+    <img  src="assets/Tasleeh Icon.png">
+    </div>
+    </center> 
  <h2> Sign Up</h2>
  <br>
   <ion-item class="roundedInput">
@@ -34,7 +38,10 @@
   <ion-input [(ngModel)]="confirmpassword" placeholder="Confirm password">  </ion-input><br>
 </ion-item>
 <br>
-
+<center>
  <ion-button (click)="signup(Name,email,password,mobile)" style="text-align:center" > Register </ion-button>
- <ion-label>Already have an account? <a class="link" href="login">sign in</a></ion-label>
+</center>
+<center>
+<ion-label>Already have an account? <a class="link" href="login">sign in</a></ion-label>
+</center>
 </ion-content>
