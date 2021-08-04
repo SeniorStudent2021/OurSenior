@@ -1,0 +1,63 @@
+<ion-toolbar  class="background">
+  <ion-buttons slot="start">
+    <ion-menu-button></ion-menu-button>
+  </ion-buttons>
+</ion-toolbar>
+<ion-content class="background">
+ 
+  <ng-container *ngFor="let x of datasrv.orders|async;">
+    <span *ngIf="x.id==id">
+
+<h2>{{x.type}} request details</h2>
+
+<ng-container *ngFor="let y of datasrv.vehicles|async;">
+  <span *ngIf="y.customerid == x.customerid"> 
+  <span *ngIf="y.id == x.car"> 
+  <ng-container *ngFor="let z of datasrv.users|async;">
+<span *ngIf="z.id == x.customerid">
+  <br>
+  <h3>  &nbsp; &nbsp;Request information</h3>
+
+<ion-card >
+  <p> &nbsp; &nbsp;Request ID: {{x.id}}</p> 
+  <p> &nbsp; &nbsp;Request Date: {{x.date | date:'d-M-y h:mm a'}}</p> 
+  <p> &nbsp; &nbsp;Request status: {{x.status}}</p> 
+<p> &nbsp; &nbsp;Customer name: {{z.name}}</p>
+ <p> &nbsp; &nbsp;customer number: {{z.mobile}}</p>
+<p> &nbsp; &nbsp;Car Company: {{y.company}}</p>
+<p> &nbsp; &nbsp;Car series: {{y.series}}</p> 
+<p> &nbsp; &nbsp;Model year: {{y.year}}</p> 
+<p> &nbsp; &nbsp;Plate no: {{y.plateno}}</p> 
+
+</ion-card>
+</span>
+  </ng-container>
+  </span>
+  </span>
+</ng-container>
+
+<span *ngIf="x.notes!=null">
+<h3>  &nbsp; &nbsp;Customer notes</h3>
+<center>
+
+<ion-item lines="none"class="roundedInput">
+  <ion-textarea readonly [(ngModel)]="x.notes" ></ion-textarea>
+  </ion-item>
+</center>
+  </span>
+
+
+  <ion-item lines="none"class="background">
+    <ion-label>&nbsp;Price: &nbsp; {{x.price}} BD</ion-label>
+
+ 
+</ion-item>
+<br>
+
+
+    </span>
+</ng-container>
+  
+
+
+</ion-content>

@@ -77,6 +77,11 @@ const routes: Routes = [
     path: 'currentdetails/:id/:lat/:long/:prov',
     loadChildren: () => import('./currentdetails/currentdetails.module').then( m => m.CurrentdetailsPageModule)
   },
+  {
+    path: 'paymentdetails/:id/:prov',
+    loadChildren: () => import('./paymentdetails/paymentdetails.module').then( m => m.PaymentdetailsPageModule)
+  },
+
 
 
 
