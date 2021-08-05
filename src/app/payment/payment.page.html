@@ -6,14 +6,13 @@
 <ion-content class="background">
   <br>
 <h2>Payment statement</h2>
+<center>
 
 <ion-card class="dark">
-  <center>
-  <h6>Net profit: BD</h6> 
-</center>
+  <h6>Net profit : {{net}} BD</h6> 
 </ion-card>
+</center>
 
-<br><br>
 <h5>&nbsp;&nbsp;&nbsp;&nbsp;Service earnings</h5>
 <ion-card >
 <ion-row>
@@ -53,6 +52,18 @@
 </span>
 </ng-container>
 </ion-card>
+<center>
+
+<ion-card class="dark">
+  <h6>Total earnings : {{profit}} BD</h6> 
+</ion-card>
+</center>
+<center>
+
+<ion-card class="dark">
+  <h6>Tasleeh tax 15% : {{tax}} BD</h6> 
+</ion-card>
+</center>
 
 </ion-content>
 
