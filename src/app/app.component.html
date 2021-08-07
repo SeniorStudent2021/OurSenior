@@ -4,8 +4,9 @@
       <ion-content>
 
         <ion-list id="inbox-list">
-          <ion-list-header>Tasleeh</ion-list-header>
-         <br><br>
+          <br>
+          <ion-list-header><img src="assets/tasleeh logo dark.png"></ion-list-header>
+         <br>
          <ng-container *ngFor="let x of datasrv.users|async">
            <span *ngIf="x.id==uid">
            <span *ngIf="x.type=='customer'">

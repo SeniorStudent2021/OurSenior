@@ -28,11 +28,16 @@ ion-menu.md ion-list#inbox-list {
 }
 
 ion-menu.md ion-list#inbox-list ion-list-header {
-  font-size: 22px;
+  font-size: 15px;
   font-weight: 600;
   font-family: poppins;
 
   min-height: 20px;
+}
+img{
+  left: 0px;
+  width: 170px;
+  height: 45px;
 }
 
 ion-menu.md ion-list#labels-list ion-list-header {
