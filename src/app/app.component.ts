@@ -19,7 +19,8 @@ export class AppComponent {
              if (user) {
               this.uid=user.uid;
  this.appPages = [
-   
+  { title: 'Home', url: '/home/'+ this.uid, icon: 'home' },
+
     { title: 'Services', url:'/services/'+ this.uid, icon: 'cog' },
     { title: 'My requests', url: '/activerequest/'+ this.uid, icon: 'flash' },
 
@@ -34,6 +35,8 @@ export class AppComponent {
 
  ];
  this.appPages2 = [
+  { title: 'Home', url: '/home/'+ this.uid, icon: 'home' },
+
   { title: 'Active requests', url: '/current/'+ this.uid, icon: 'flash' },
 
   { title: 'Pending requests', url:'/providerrequest/'+ this.uid, icon: 'hourglass' },

@@ -18,29 +18,63 @@
     </center> 
  <h2> Sign Up</h2>
  <br>
+ <form [formGroup]="myForm" (ngSubmit)="onSubmit(name,email,password,mobile)" novalidate>
+
   <ion-item class="roundedInput">
-    <ion-input [(ngModel)]="Name" placeholder="Enter your full name">  </ion-input><br>
+    <ion-input formControlName="name"  placeholder="Enter your full name">  </ion-input><br>
   </ion-item>
+  <span class="error ion-padding" *ngIf=" errorCtr.name.errors?.required">
+    Name is required.
+  </span>
+  <span class="error ion-padding" *ngIf=" errorCtr.name.errors?.minlength">
+    Min 3 chars long.
+  </span>
 <br>
   <ion-item class="roundedInput">
-  <ion-input [(ngModel)]="email" placeholder="Enter your Email">  </ion-input><br>
+  <ion-input formControlName="email" type="email" placeholder="Enter your Email">  </ion-input><br>
 </ion-item>
+<span class="error ion-padding" *ngIf=" errorCtr.email.errors?.required">
+  Email is required.
+</span>
+<span class="error ion-padding" *ngIf=" errorCtr.email.errors?.pattern">
+  Enter valid email.
+</span>
 <br>
 <ion-item class="roundedInput">
-  <ion-input [(ngModel)]="mobile" placeholder="Enter your mobile number">  </ion-input><br>
+  <ion-input maxlength="8" formControlName="phone" type="text" required  placeholder="Enter your mobile number">  </ion-input><br>
 </ion-item>
+<span class="error ion-padding" *ngIf=" errorCtr.phone.errors?.required">
+  Phone number is required.
+</span>
+<span class="error ion-padding" *ngIf=" errorCtr.phone.errors?.pattern">
+  Number values allowed.
+</span>
 <br>
 <ion-item class="roundedInput">
-  <ion-input [(ngModel)]="password" placeholder="Enter password">  </ion-input><br>
+  <ion-input  formControlName="password"  placeholder="Enter password">  </ion-input><br>
 </ion-item>
+<span class="error ion-padding" *ngIf="errorCtr.password.errors?.required">
+ Password is required.
+</span>
+<span class="error ion-padding" *ngIf=" errorCtr.password.errors?.pattern">
+  Password must be contain atleast 8 letters one lowercase and one uppercase letter one digit and one special character
+
+</span>
 <br>
 <ion-item class="roundedInput">
-  <ion-input [(ngModel)]="confirmpassword" placeholder="Confirm password">  </ion-input><br>
+  <ion-input   formControlName="cpassword"  placeholder="Confirm password">  </ion-input><br>
 </ion-item>
+<span class="error ion-padding" *ngIf=" errorCtr.cpassword.errors?.required">
+  Confirmation password is required.
+ </span>
+ <span class="error ion-padding" *ngIf=" errorCtr.cpassword.errors?.pattern">
+  Password and confirmation password must match values allowed.
+ </span>
 <br>
 <center>
- <ion-button (click)="signup(Name,email,password,mobile)" style="text-align:center" > Register </ion-button>
+ <ion-button type="submit" style="text-align:center" > Register </ion-button>
 </center>
+</form>
 <center>
 <ion-label>Already have an account? <a class="link" href="login">sign in</a></ion-label>
 </center>

@@ -4,25 +4,97 @@
   </ion-buttons>
 </ion-toolbar>
 
-<ion-content class="background">
+<ion-content class="back"> <div class="label">
 
   <ng-container *ngFor="let x of datasrv.users|async;">
     <span *ngIf="x.id == id" >
     <span *ngIf="x.type == 'provider'"> 
-      <h2> Welcome provider</h2>
-
+<br>
+      <img class="tasleeh"  src="assets/tasleeh logo light.png">
+      <ion-list lines="none"> 
+  
+        <ion-card>
+          <br><br>
+        <ion-item >
+            <br>
+           
+            <div style="display: flex; align-items: center;justify-content: center;">
+              &nbsp;  &nbsp;  <img  src="assets/tow-truck2.png"></div>
+         &nbsp;  &nbsp;  &nbsp;<ion-button (click)="tow()">   Request</ion-button>   
+       
+              </ion-item>
+              <ion-label>  </ion-label>
+        </ion-card>
+        <div class="blue">
+        <ion-card >
+          <br><br>
+        <ion-item >
+            <br>
+           
+            <div style="display: flex; align-items: center;justify-content: center;">
+              &nbsp;    &nbsp; <img  src="assets/flat-tire2.png"></div>
+         &nbsp;  &nbsp;  &nbsp;<ion-button (click)="tire()">   Request</ion-button>   
+              </ion-item>
+        </ion-card>
+      </div>
+      <ion-card>
+        <br><br>
+      <ion-item >
+          <br>
+         
+          <div style="display: flex; align-items: center;justify-content: center;">
+              <img  src="assets/accumulator3.png"></div>
+       &nbsp;  &nbsp;  &nbsp;<ion-button (click)="battery()">   Request</ion-button>   
+            </ion-item>
+      </ion-card>
+      </ion-list>
   </span> 
 
 
 
   <span *ngIf="x.type =='customer'">
+    <img  src="assets/tasleeh logo light.png">
 
-
-<h2>Welcome customer!</h2>
-
+    <ion-list lines="none"> 
+  
+      <ion-card>
+        <br><br>
+      <ion-item >
+          <br>
+         
+          <div style="display: flex; align-items: center;justify-content: center;">
+            &nbsp;  &nbsp;  <img  src="assets/tow-truck2.png"></div>
+       &nbsp;  &nbsp;  &nbsp;<ion-button (click)="tow()">   Request</ion-button>   
+     
+            </ion-item>
+            <ion-label>  </ion-label>
+      </ion-card>
+      <div class="blue">
+      <ion-card >
+        <br><br>
+      <ion-item >
+          <br>
+         
+          <div style="display: flex; align-items: center;justify-content: center;">
+            &nbsp;    &nbsp; <img  src="assets/flat-tire2.png"></div>
+       &nbsp;  &nbsp;  &nbsp;<ion-button (click)="tire()">   Request</ion-button>   
+            </ion-item>
+      </ion-card>
+    </div>
+    <ion-card>
+      <br><br>
+    <ion-item >
+        <br>
+       
+        <div style="display: flex; align-items: center;justify-content: center;">
+            <img  src="assets/accumulator3.png"></div>
+     &nbsp;  &nbsp;  &nbsp;<ion-button (click)="battery()">   Request</ion-button>   
+          </ion-item>
+    </ion-card>
+    </ion-list>
 
   </span>
 </span>
 </ng-container>
-
+</div>
 </ion-content>
