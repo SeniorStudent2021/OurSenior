@@ -35,9 +35,10 @@ export class SignupPage implements OnInit {
         Validators.maxLength(30),
         Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')
 
+
       ])),
     },
-     { 
+     {
      
     });
     
@@ -57,7 +58,7 @@ export class SignupPage implements OnInit {
     } else {
       console.log(this.myForm.value)
     }
-    let alert =await  this.alertCtrl.create({
+    let alert1 =await  this.alertCtrl.create({
       header: 'Welcome',
       cssClass: 'alertcolor',
       message: 'you have been signed up successfully ',
@@ -71,7 +72,7 @@ export class SignupPage implements OnInit {
         header: 'Error',
         cssClass: 'alertcolor',
     
-        message: ' User not created ',
+        message: ' User not created, pleade try again ',
         buttons: [{
           text:'OK',
           role:'ok',
@@ -84,22 +85,20 @@ export class SignupPage implements OnInit {
       this.afAuth.createUserWithEmailAndPassword(this.myForm.value['email'], this.myForm.value['password'])
 
       .then((respone)=>{
-       alert.present();
+       alert1.present();
       
-       this.item={id:respone.user.uid,email:email,type:"customer",name:name,mobile:mobile};
+       this.item={id:respone.user.uid,email:this.myForm.value['email'],type:"customer",name:this.myForm.value['name'],mobile:this.myForm.value['phone']};
     
         this.datasrv.usersCollectionRef.doc(respone.user.uid).set(this.item)
-         this.afAuth.signInWithEmailAndPassword(email,password);
+         this.afAuth.signInWithEmailAndPassword(this.myForm.value['email'],this.myForm.value['password']);
 
-        return  this.router.navigate(['/services/'+respone.user.uid]); 
+        return  this.router.navigate(['/home/'+respone.user.uid]); 
 
 
        
        
 })
-
-.catch((geterr)=>{
-  
+.catch((err)=>{
 alert2.present();
   }) 
 }

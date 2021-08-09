@@ -5,7 +5,7 @@
 
         <ion-list id="inbox-list">
           <br>
-          <ion-list-header><img src="assets/tasleeh logo dark.png"></ion-list-header>
+          <ion-list-header><img routerLink="/home/{{uid}}" src="assets/menuheader.png"></ion-list-header>
          <br>
          <ng-container *ngFor="let x of datasrv.users|async">
            <span *ngIf="x.id==uid">

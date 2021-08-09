@@ -69,6 +69,10 @@ display: block;
 
     }
 ion-card{
+  img{
+    width: 90%;
+    height: 80%;
+  }
  ion-item{
   --ion-background-color: #232E43;;
    color: #232E43;
@@ -79,13 +83,7 @@ ion-card{
   width: 340px;
   height: 170px;
 }
-img{
-  
-bottom: 0px;  
-  margin: auto;
-  display: block;
 
-}
 .top{
   top: 30px;
 }
@@ -132,8 +130,4 @@ line-height: 36px;
 
 
 color: #ffffff;
-}
-.tasleeh{
-  width: 250px;
-  height: 60px;
 }

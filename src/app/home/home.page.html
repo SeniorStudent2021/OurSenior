@@ -10,42 +10,27 @@
     <span *ngIf="x.id == id" >
     <span *ngIf="x.type == 'provider'"> 
 <br>
-      <img class="tasleeh"  src="assets/tasleeh logo light.png">
+<center>
+      <img  style="width:290px;" src="assets/tasleeh logo light.png">
+    </center>
       <ion-list lines="none"> 
-  
-        <ion-card>
-          <br><br>
-        <ion-item >
-            <br>
-           
-            <div style="display: flex; align-items: center;justify-content: center;">
-              &nbsp;  &nbsp;  <img  src="assets/tow-truck2.png"></div>
-         &nbsp;  &nbsp;  &nbsp;<ion-button (click)="tow()">   Request</ion-button>   
-       
-              </ion-item>
-              <ion-label>  </ion-label>
+  <br>
+        <ion-card routerLink="/current/{{id}}">
+          <center>
+                <img  src="assets/active.png">
+              </center>
         </ion-card>
         <div class="blue">
-        <ion-card >
-          <br><br>
-        <ion-item >
-            <br>
-           
-            <div style="display: flex; align-items: center;justify-content: center;">
-              &nbsp;    &nbsp; <img  src="assets/flat-tire2.png"></div>
-         &nbsp;  &nbsp;  &nbsp;<ion-button (click)="tire()">   Request</ion-button>   
-              </ion-item>
-        </ion-card>
+          <ion-card routerLink="/providerrequest/{{id}}">
+            <center>
+                  <img  src="assets/pending.png">
+                </center>
+          </ion-card>
       </div>
-      <ion-card>
-        <br><br>
-      <ion-item >
-          <br>
-         
-          <div style="display: flex; align-items: center;justify-content: center;">
-              <img  src="assets/accumulator3.png"></div>
-       &nbsp;  &nbsp;  &nbsp;<ion-button (click)="battery()">   Request</ion-button>   
-            </ion-item>
+      <ion-card routerLink="/payment/{{id}}">
+        <center>
+              <img  src="assets/p.png">
+            </center>
       </ion-card>
       </ion-list>
   </span> 
@@ -53,43 +38,27 @@
 
 
   <span *ngIf="x.type =='customer'">
-    <img  src="assets/tasleeh logo light.png">
-
+    <center>
+    <img style="width:290px;" src="assets/tasleeh logo light.png">
+  </center>
     <ion-list lines="none"> 
-  
-      <ion-card>
-        <br><br>
-      <ion-item >
-          <br>
-         
-          <div style="display: flex; align-items: center;justify-content: center;">
-            &nbsp;  &nbsp;  <img  src="assets/tow-truck2.png"></div>
-       &nbsp;  &nbsp;  &nbsp;<ion-button (click)="tow()">   Request</ion-button>   
-     
-            </ion-item>
-            <ion-label>  </ion-label>
-      </ion-card>
+  <br>
+  <ion-card routerLink="/services/{{id}}">
+    <center>
+          <img  src="assets/serv.png">
+        </center>
+  </ion-card>
       <div class="blue">
-      <ion-card >
-        <br><br>
-      <ion-item >
-          <br>
-         
-          <div style="display: flex; align-items: center;justify-content: center;">
-            &nbsp;    &nbsp; <img  src="assets/flat-tire2.png"></div>
-       &nbsp;  &nbsp;  &nbsp;<ion-button (click)="tire()">   Request</ion-button>   
-            </ion-item>
-      </ion-card>
+        <ion-card routerLink="/activerequest/{{id}}">
+          <center>
+                <img  src="assets/req.png">
+              </center>
+        </ion-card>
     </div>
-    <ion-card>
-      <br><br>
-    <ion-item >
-        <br>
-       
-        <div style="display: flex; align-items: center;justify-content: center;">
-            <img  src="assets/accumulator3.png"></div>
-     &nbsp;  &nbsp;  &nbsp;<ion-button (click)="battery()">   Request</ion-button>   
-          </ion-item>
+    <ion-card routerLink="/addvehicle/{{id}}">
+      <center>
+            <img  src="assets/addv.png">
+          </center>
     </ion-card>
     </ion-list>
 

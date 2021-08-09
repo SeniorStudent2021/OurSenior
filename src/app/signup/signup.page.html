@@ -11,7 +11,7 @@
 
 <ion-content class="background">
 
-  <br><br> <center>
+  <br> <center>
     <div class="logo">
     <img  src="assets/Tasleeh Icon.png">
     </div>
@@ -23,52 +23,52 @@
   <ion-item class="roundedInput">
     <ion-input formControlName="name"  placeholder="Enter your full name">  </ion-input><br>
   </ion-item>
-  <span class="error ion-padding" *ngIf=" errorCtr.name.errors?.required">
-    Name is required.
+  <span class="x" *ngIf=" submitted &&  errorCtr.name.errors?.required">
+  &nbsp; &nbsp; &nbsp; &nbsp; Name is required.
   </span>
-  <span class="error ion-padding" *ngIf=" errorCtr.name.errors?.minlength">
-    Min 3 chars long.
+  <span class="x" *ngIf="  errorCtr.name.errors?.minlength">
+    &nbsp; &nbsp; &nbsp; &nbsp; Min 3 chars long.
   </span>
 <br>
   <ion-item class="roundedInput">
-  <ion-input formControlName="email" type="email" placeholder="Enter your Email">  </ion-input><br>
+  <ion-input formControlName="email" type="text" placeholder="Enter your Email">  </ion-input><br>
 </ion-item>
-<span class="error ion-padding" *ngIf=" errorCtr.email.errors?.required">
-  Email is required.
+<span class="x" *ngIf="submitted &&  errorCtr.email.errors?.required">
+  &nbsp; &nbsp; &nbsp; &nbsp;Email is required.
 </span>
-<span class="error ion-padding" *ngIf=" errorCtr.email.errors?.pattern">
-  Enter valid email.
+<span class="x" *ngIf=" errorCtr.email.errors?.pattern">
+  &nbsp; &nbsp; &nbsp;&nbsp; Enter valid email.
 </span>
 <br>
 <ion-item class="roundedInput">
   <ion-input maxlength="8" formControlName="phone" type="text" required  placeholder="Enter your mobile number">  </ion-input><br>
 </ion-item>
-<span class="error ion-padding" *ngIf=" errorCtr.phone.errors?.required">
-  Phone number is required.
+<span class="x" *ngIf=" submitted &&  errorCtr.phone.errors?.required">
+  &nbsp; &nbsp; &nbsp;&nbsp; Phone number is required.
 </span>
-<span class="error ion-padding" *ngIf=" errorCtr.phone.errors?.pattern">
-  Number values allowed.
+<span class="x" *ngIf=" errorCtr.phone.errors?.pattern">
+  &nbsp;&nbsp; &nbsp; &nbsp; Number values allowed.
 </span>
 <br>
 <ion-item class="roundedInput">
   <ion-input  formControlName="password"  placeholder="Enter password">  </ion-input><br>
 </ion-item>
-<span class="error ion-padding" *ngIf="errorCtr.password.errors?.required">
- Password is required.
+<span class="x" *ngIf="submitted && errorCtr.password.errors?.required">
+  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Password is required.
 </span>
-<span class="error ion-padding" *ngIf=" errorCtr.password.errors?.pattern">
-  Password must be contain atleast 8 letters one lowercase and one uppercase letter one digit and one special character
+<span class="x" *ngIf=" errorCtr.password.errors?.pattern">
+  &nbsp;&nbsp; &nbsp; &nbsp;Password must contain atleast 8 letters including numbers One lowercase and one uppercase letter 
 
 </span>
 <br>
 <ion-item class="roundedInput">
   <ion-input   formControlName="cpassword"  placeholder="Confirm password">  </ion-input><br>
 </ion-item>
-<span class="error ion-padding" *ngIf=" errorCtr.cpassword.errors?.required">
-  Confirmation password is required.
+<span class="x" *ngIf="submitted &&  errorCtr.cpassword.errors?.required">
+  &nbsp; &nbsp; &nbsp; &nbsp;Confirmation password is required.
  </span>
- <span class="error ion-padding" *ngIf=" errorCtr.cpassword.errors?.pattern">
-  Password and confirmation password must match values allowed.
+ <span class="x" *ngIf=" errorCtr.cpassword.errors?.pattern">
+  &nbsp; &nbsp; &nbsp; &nbsp;Password and confirmation password must match values allowed.
  </span>
 <br>
 <center>
