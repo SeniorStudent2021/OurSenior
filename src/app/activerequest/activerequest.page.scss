@@ -82,4 +82,15 @@ font-family: poppins;
     color: white;
     font-family: poppins;  
    }
-   
+  .dark{
+      ion-card{
+    ion-item{
+     --ion-background-color:#232E43;
+      color: #04ADB2;
+    }
+    
+     background-color:  #232E43;
+     width: 340px;
+     height: 190px;
+   }
+}
