@@ -31,7 +31,7 @@ export interface Order{
   longtitude?:any,
   providerid?:any;
   price?:any;
-
+spare?:any;
 
 }
 export interface Vehicle{
@@ -170,6 +170,44 @@ this.date=new Date();
 }
 }
 
+
+addordertyre(customer,type,car,lat,long,notes,spare){
+  if(notes==null){
+
+
+    this.date=new Date();
+    return this.ordersCollectionRef.add({
+      customerid:customer,
+      type:type,
+      car:car,
+      latitude:lat,
+      longtitude:long,
+      status:"pending",
+      date:this.date.toString(),
+      spare:spare
+        });
+  
+
+
+  }
+  if(notes!=null){
+
+this.date=new Date();
+  return this.ordersCollectionRef.add({
+    customerid:customer,
+    type:type,
+    car:car,
+    latitude:lat,
+    longtitude:long,
+    notes:notes,
+    status:"pending",
+    date:this.date.toString(),
+    spare:spare
+
+      });
+
+}
+}
 
 updateorder(orderid,provid): Promise<any> {
 

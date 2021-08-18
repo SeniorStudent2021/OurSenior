@@ -81,6 +81,13 @@ public car; public latit=0;
   scrollwheel: false;
   disableDoubleClickZoom: true;
   
+
+  public spare;
+Handler(event) {
+  // get data throught event emitter
+  this.spare = event.target.value;
+}
+
   addMarker(event: google.maps.MouseEvent) {
 
     this.markerPositions=[];
@@ -116,6 +123,16 @@ public car; public latit=0;
         cssClass:'alertbutton',
 
       }]    })
+      let alert3 =await  this.alertCtrl.create({
+        header: 'Spare tyre',
+        cssClass: 'alertcolor',
+        message: 'Please specify if you have spare tyre or not ',
+        buttons: [{
+          text:'OK',
+          role:'ok',
+          cssClass:'alertbutton',
+  
+        }]    })
       let alert2 =await  this.alertCtrl.create({
         header: 'Error',
         cssClass: 'alertcolor',
@@ -129,7 +146,12 @@ public car; public latit=0;
         }
         ]
 });
-    this.datasrv.addorder(this.id,this.type,this.car,this.latit,this.longit,this.notes).then((respone)=>{
+if(this.type=="Flat tyre"&&this.spare==null){
+  alert3.present();
+}
+if(this.type=="Flat tyre"&&this.spare!=null){
+    this.datasrv.addordertyre(this.id,this.type,this.car,this.latit,this.longit,this.notes,this.spare).then((respone)=>{
+    
       alert.present();   
       this.router.navigate(['/activerequest/'+this.id]); 
 
@@ -139,5 +161,22 @@ alert2.present();
  }) 
 
  }
+
+if(this.type!="Flat tyre"){
+
+  this.datasrv.addorder(this.id,this.type,this.car,this.latit,this.longit,this.notes).then((respone)=>{
+    
+    alert.present();   
+    this.router.navigate(['/activerequest/'+this.id]); 
+
+})
+.catch((err)=>{
+alert2.present();
+}) 
+
+}
+
+}
+
 }
 

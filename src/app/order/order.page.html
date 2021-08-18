@@ -45,6 +45,24 @@
 <div class="locbutton">
 </div>
 </center>
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;Do you have a spare tyre ? <br>
+
+<center>
+  <ion-radio-group  (ionChange)="Handler($event)" value="biff">
+   
+    <ion-radio slot="start" value="yes"></ion-radio>
+
+      <ion-label>Yes</ion-label>
+ &nbsp;  &nbsp;
+      <ion-radio slot="start" value="no"></ion-radio>
+
+      <ion-label>No</ion-label>
+    
+  </ion-radio-group>
+</center>
+</h3>
+
+
 
 <h3>&nbsp;&nbsp;&nbsp;&nbsp;Pricing:</h3>
 
@@ -53,7 +71,14 @@
     <h5>&nbsp; &nbsp;Estimated price: &nbsp; &nbsp; 7BD-10BD</h5>
 </span>
 <span *ngIf="type=='Flat tyre'">
-   <h5>&nbsp; &nbsp;Estimated price: &nbsp; &nbsp; 2BD-50BD</h5>
+  <span *ngIf="spare=='yes'">
+
+   <h5>&nbsp; &nbsp;Estimated price: &nbsp; &nbsp; 2BD-5BD</h5>
+   </span>
+   <span *ngIf="spare=='no'">
+
+    <h5>&nbsp; &nbsp;Estimated price: &nbsp; &nbsp; 8BD-50BD</h5>
+    </span>
 </span>
 <span *ngIf="type=='Door lock'">
     <h5>&nbsp; &nbsp;Estimated price: &nbsp; &nbsp; 3BD-5BD</h5>

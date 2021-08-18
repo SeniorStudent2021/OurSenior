@@ -99,4 +99,16 @@
       }
       font-family: poppins;
     }
-  
+    ion-item{
+    .item-content {
+      background-color:#f3f6ff;
+    
+    }
+    background-color:#f3f6ff;
+
+    width: fit-content;
+  }
+  ion-radio{
+    width: 40px;
+    height: 30px;
+  }

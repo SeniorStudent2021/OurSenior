@@ -20,11 +20,17 @@
 
 <ion-card >
 <p> &nbsp; &nbsp;Customer name: {{z.name}}</p>
- <p> &nbsp; &nbsp;customer number: {{z.mobile}}</p>
+ <p> &nbsp; &nbsp;customer number:  <a href={{z.mobile}}> {{z.mobile}}</a></p>
 <p> &nbsp; &nbsp;Car Company: {{y.company}}</p>
 <p> &nbsp; &nbsp;Car series: {{y.series}}</p> 
 <p> &nbsp; &nbsp;Model year: {{y.year}}</p> 
-<p> &nbsp; &nbsp;Plate no: {{y.plateno}}</p> 
+<p> &nbsp; &nbsp;Plate no: {{y.plateno}}</p>  
+<span *ngIf="x.type=='Flat tyre'">
+
+  <p> &nbsp; &nbsp;Spare tyre availablity: {{x.spare}}</p> 
+
+</span>
+
 </ion-card>
 </span>
   </ng-container>
