@@ -14,6 +14,7 @@ import {CommonModule} from '@angular/common';
 import {GoogleMapsModule} from '@angular/google-maps';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { FileSizePipe } from './file-size.pipe';
 const firebaseConfig = {
   apiKey: "AIzaSyBlQoOxR041Usv5AAQvthwEKZBXl7oOsUw",
   authDomain: "roadside-bcd65.firebaseapp.com",
@@ -23,7 +24,7 @@ const firebaseConfig = {
   appId: "1:148597733755:web:2f61e9e6fdebd86e3265de"
 };
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, FileSizePipe],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,GoogleMapsModule
     ,AngularFireModule.initializeApp(firebaseConfig),AngularFirestoreModule

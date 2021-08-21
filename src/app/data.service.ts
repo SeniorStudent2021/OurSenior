@@ -7,6 +7,7 @@ import { map, take } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import 'firebase/firestore';
 import * as firebase from 'firebase/app';
+import { AlertController } from '@ionic/angular';
 
 
 
@@ -17,6 +18,13 @@ export interface User {
   name?: string,
   mobile?:number,
   type?:any;
+
+}
+export interface Services {
+  id?:string,
+
+  name?: string,
+ img?:any;
 
 }
 export interface Order{
@@ -53,12 +61,15 @@ export class DataService {
   users:Observable<User[]>;
   usersCollectionRef:AngularFirestoreCollection<User>;
 
+  services:Observable<Services[]>;
+  servicesCollectionRef:AngularFirestoreCollection<Services>;
+
   orders:Observable<Order[]>;
   ordersCollectionRef:AngularFirestoreCollection<Order>;
 
   vehicles:Observable<Vehicle[]>;
   vehiclesCollectionRef:AngularFirestoreCollection<Vehicle>;
-  constructor(public afAuth: AngularFireAuth, public afs: AngularFirestore) { 
+  constructor(public afAuth: AngularFireAuth, public afs: AngularFirestore,public alertCtrl:AlertController) { 
     this.usersCollectionRef = this.afs.collection('Users'); 
        // this.products = this.productsCollectionRef.valueChanges();
         this.users=this.usersCollectionRef.snapshotChanges().pipe(
@@ -78,6 +89,26 @@ export class DataService {
           })
         );
 
+
+        this.servicesCollectionRef = this.afs.collection('Services'); 
+           // this.products = this.productsCollectionRef.valueChanges();
+            this.services=this.servicesCollectionRef.snapshotChanges().pipe(
+        
+              map(actions => {
+        
+                return actions.map(a => {
+        
+                  const data = a.payload.doc.data();
+        
+                  const id = a.payload.doc.id;
+        
+                  return { id, ...data };
+        
+                });
+        
+              })
+            );
+    
         this.ordersCollectionRef = this.afs.collection('Orders'); 
        // this.products = this.productsCollectionRef.valueChanges();
         this.orders=this.ordersCollectionRef.snapshotChanges().pipe(
@@ -169,6 +200,49 @@ this.date=new Date();
 
 }
 }
+addservice(name,img){
+ 
+    return this.servicesCollectionRef.add({
+   name:name,
+   img:img
+        });
+
+  }
+
+ async deleteservice(id) {
+    let alert =await  this.alertCtrl.create({
+      header: 'Service Deleted',
+      cssClass: 'alertcolor',
+      message: 'The service has been deleted successfully',
+      buttons: [{
+        text:'OK',
+        role:'ok',
+        cssClass:'alertbutton',
+  
+      }]    })
+      let alert2 =await  this.alertCtrl.create({
+        header: 'Service not Deleted',
+        cssClass: 'alertcolor',
+        message: 'The service has not been deleted, please try again',
+        buttons: [{
+          text:'OK',
+          role:'ok',
+          cssClass:'alertbutton',
+    
+        }]    })
+    
+    this.servicesCollectionRef.doc(id).delete().then((response)=>{
+        alert.present();
+    })
+    
+    .catch((err )=>{
+    
+      alert2.present();
+    
+    }) 
+
+}
+
 
 
 addordertyre(customer,type,car,lat,long,notes,spare){

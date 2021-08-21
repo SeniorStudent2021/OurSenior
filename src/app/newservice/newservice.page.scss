@@ -1,0 +1,81 @@
+.roundedInput {
+    font-family:poppins;
+ion-input{
+    font-family:poppins;
+  
+}
+left: 8%;    width: 85%;
+    --border-color: white;
+    --border-radius: 30px;
+    --border-width: 1px;
+    --box-shadow: 2px rgb(255, 255, 255);
+    --highlight-height: 0;
+    --background: #ffffff;
+   }
+   .background{
+
+    font-family:poppins;
+
+       --background:#232E43; ;
+       --ion-background-color:#232E43; ;
+   }
+   h2{
+    font-family:poppins;
+
+       text-align: center;
+       font-size: 30px;
+       font-weight:700 ;
+       color: #04AEB0;
+   }
+   ion-button{
+    font-family:poppins;
+
+       left: 30%;
+width: 40%;
+   color: #ffffff;
+    font-weight: bold;
+    --border-color: white;
+    --border-radius: 30px;
+    --border-width: 1px;
+    --box-shadow: 2px rgb(255, 255, 255);
+    --highlight-height: 0;
+    font-size: 18px;
+    --background: #04AEB0;
+   } 
+
+   ion-toolbar {
+    --background: #f3f6ff;
+    --ion-background-color:#000000;
+}
+a{
+    text-decoration: none;
+    color: #04AEB0;
+    text-align: center;
+    font-size: 15px;
+    font-family: poppins;
+}
+p{
+    text-decoration: none;
+color:#232E43; ;
+}
+.logo{
+    img{
+    width: 120px;
+    height: 120px;
+  }
+}
+ion-menu-button{
+    color: #04AEB0;
+  }
+  ion-card-title{
+      font-family: poppins;
+      color: #ffffff;
+  }
+  ion-card{
+      background-color: none;
+      box-shadow: none;
+      height: fit-content;
+  }
+  input{
+    left: 8%;    width: 85%;
+  }

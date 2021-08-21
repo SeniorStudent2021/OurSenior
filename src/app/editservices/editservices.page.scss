@@ -1,0 +1,141 @@
+.back{
+    --ion-background-color:#f3f6ff;
+
+}
+ion-title{
+    font-size: 15px;
+  
+  }
+  h2{
+      color: #04ADB2;
+      text-align: center;
+      font-size: 37px;
+      font-family:poppins;
+      font-weight:700 ;
+  }
+  ion-input{
+  position: absolute;
+  width: 309px;
+  height: 43px;
+  left: 342px;
+  top: 346px;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 10px;
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+  }.label{
+      .blue{
+          ion-card{
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+            ion-item{
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+                --ion-background-color: #04ADB2;
+                 color: #04ADB2;
+               }
+            background-color: #04ADB2;}
+        img{
+              
+  bottom: 0px;  
+  margin: auto;
+  display: block;
+            }
+            .top{
+              top: 30px;
+            }
+            
+            p{
+              font-family:poppins;
+
+              height: 70%;
+              text-align:start;
+              font-size: 27px;
+              font-weight: bold;
+              color: aliceblue;
+            
+            }
+            
+            ion-button{
+              font-family:poppins;
+
+            top: 60%;
+            font-size: 15px;
+            font-weight: bold;
+             --background:#d44848;
+            }
+
+
+
+      }
+  ion-card{
+   ion-item{
+    --ion-background-color: #232E43;;
+     color: #232E43;
+     
+   }
+   
+    background-color:  #232E43;
+    width: 340px;
+    height: 170px;
+  }
+  img{
+    
+  bottom: 0px;  
+    margin: auto;
+    display: block;
+  
+  }
+  .top{
+    top: 30px;
+  }
+  
+  p{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+    height: 70%;
+    text-align:start;
+    font-size: 27px;
+    font-weight: bold;
+    color: aliceblue;
+  
+  }
+  
+  ion-button{
+  top: 60%;
+  font-size: 15px;
+  font-weight: bold;
+   --background:#d44848;
+   font-family:poppins;
+
+  }}
+
+  .background{
+--background:#f3f6ff;
+ion-menu-button{
+color:#232E43;
+
+}
+  }
+  ion-label{
+
+    position: absolute;
+width: 116px;
+height: 36px;
+left: 153px;
+top: 140px;
+
+font-family: Poppins;
+font-style: normal;
+font-weight: bold;
+font-size: 24px;
+line-height: 36px;
+/* identical to box height */
+
+
+color: #ffffff;
+
+  }
+  ion-fab-button{
+    --background:#232E43;
+  }

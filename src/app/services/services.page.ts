@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-services',
@@ -8,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ServicesPage implements OnInit {
 
-  constructor(public route:ActivatedRoute, public router:Router) { }
+  constructor(public route:ActivatedRoute, public router:Router, public datasrv:DataService) { }
 public sub;
 public id;
   ngOnInit() {
@@ -19,26 +20,31 @@ public id;
 
   });
   }
- tow(){
-  this.router.navigate(['/choosevehicle/'+this.id+'/Tow']); 
 
- }
- door(){
-  this.router.navigate(['/choosevehicle/'+this.id+'/Door lock']); 
+  order(x){
+    if (x=="Tow Truck"){
+      this.router.navigate(['/choosevehicle/'+this.id+'/Tow']); 
 
- }
- battery(){
-  this.router.navigate(['/choosevehicle/'+this.id+'/Battery charge']); 
+    }
+    if (x=="Flat Tyre"){
+      this.router.navigate(['/choosevehicle/'+this.id+'/Flat tyre']); 
+    }
+    if (x=="Door Lock"){
+      this.router.navigate(['/choosevehicle/'+this.id+'/Door lock']); 
 
- }
-tire(){
-  this.router.navigate(['/choosevehicle/'+this.id+'/Flat tyre']); 
+    }
+    if (x=="Battery Boosting"){
+      this.router.navigate(['/choosevehicle/'+this.id+'/Battery charge']); 
 
- }
-fuel(){
-  this.router.navigate(['/choosevehicle/'+this.id+'/Fuel']); 
+    }
+    if (x=="Out of Fuel"){
+      this.router.navigate(['/choosevehicle/'+this.id+'/Fuel']); 
 
- }
+    }
+    
 
+
+
+  }
 
 }

@@ -13,6 +13,7 @@ export class AppComponent {
    public uid;
    public appPages;
    public appPages2;
+   public appPages3;
 
  public authObserver = this.afAuth.authState.subscribe( 
             user => {
@@ -47,7 +48,16 @@ export class AppComponent {
 
 
 ];
+this.appPages3 = [
+  { title: 'Home', url: '/home/'+ this.uid, icon: 'home' },
 
+    { title: 'Edit services', url:'/editservices/'+ this.uid, icon: 'cog' },
+    { title: 'Edit users', url: '/editusers/'+ this.uid, icon: 'person' },
+    { title: 'Orders', url: '/vieworders/'+ this.uid, icon: 'flash' },
+
+    { title: 'Payment statement', url: '/profit/'+ this.uid, icon: 'cash' }
+,
+ ];
        } });
     
  

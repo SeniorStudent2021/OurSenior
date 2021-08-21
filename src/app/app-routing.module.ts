@@ -81,6 +81,28 @@ const routes: Routes = [
     path: 'paymentdetails/:id/:prov',
     loadChildren: () => import('./paymentdetails/paymentdetails.module').then( m => m.PaymentdetailsPageModule)
   },
+  {
+    path: 'editservices/:id',
+    loadChildren: () => import('./editservices/editservices.module').then( m => m.EditservicesPageModule)
+  },
+  {
+    path: 'editusers/:id',
+    loadChildren: () => import('./editusers/editusers.module').then( m => m.EditusersPageModule)
+  },
+  {
+    path: 'vieworders/:id',
+    loadChildren: () => import('./vieworders/vieworders.module').then( m => m.ViewordersPageModule)
+  },
+  {
+    path: 'profit/:id',
+    loadChildren: () => import('./profit/profit.module').then( m => m.ProfitPageModule)
+  },
+  {
+    path: 'newservice/:id',
+    loadChildren: () => import('./newservice/newservice.module').then( m => m.NewservicePageModule)
+  },
+
+
 
 
 

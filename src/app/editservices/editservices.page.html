@@ -1,12 +1,21 @@
 <ion-toolbar  class="background">
+  
   <ion-buttons slot="start">
     <ion-menu-button></ion-menu-button>
   </ion-buttons>
+
 </ion-toolbar>
+<ion-fab vertical="top" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="addserv()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
 <ion-content class="back">
   
 <h2> Request service</h2>  <div class="label">
     <ion-list lines="none">
+     
+    
   <ng-container *ngFor="let x of datasrv.services | async; let i=index; ">
     <span *ngIf="i%2==1">
   <ion-card>
@@ -16,7 +25,7 @@
      
       <div style="display: flex; align-items: center;justify-content: center;">
         &nbsp;  &nbsp;  <img  src={{x.img}}></div>
-   &nbsp;  &nbsp;  &nbsp;<ion-button (click)="order(x.name)">   Request</ion-button>   
+   &nbsp;  &nbsp;  &nbsp;<ion-button (click)="deleteservice(x.id)">   Delete</ion-button>   
  
         </ion-item>
         <ion-label>  </ion-label>
@@ -31,7 +40,7 @@
      
       <div style="display: flex; align-items: center;justify-content: center;">
         &nbsp;    &nbsp; <img  src={{x.img}}></div>
-   &nbsp;  &nbsp;  &nbsp;<ion-button (click)="order(x.name)">   Request</ion-button>   
+   &nbsp;  &nbsp;  &nbsp;<ion-button (click)="deleteservice(x.id)">  Delete</ion-button>   
         </ion-item>
   </ion-card>
   </div>
