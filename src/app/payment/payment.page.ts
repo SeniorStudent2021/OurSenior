@@ -37,7 +37,7 @@ public tax:number;
     this.array.forEach(element => {
       if(element.status=="completed"){
         if(element.providerid==this.id){
-      this.profit+=element.price
+      this.profit+=element.price.toJSON();
       }}
     });
 this.tax=this.profit*0.15;    

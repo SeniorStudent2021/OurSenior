@@ -1,0 +1,128 @@
+
+       
+       .background{
+        --background:#f3f6ff;
+        ion-menu-button{
+          color: #232E43; 
+        }
+        .background{
+        
+               --ion-background-color:#f3f6ff;
+           }
+           h2{
+             font-size: 35px;
+             text-align: center;
+            font-family:poppins;
+               font-weight:700 ;
+            color:#04ADB2;
+           }
+                  ion-card{
+                background-color: #04ADB2;
+            }
+            .dark{
+      h6{
+        font-family:poppins;
+            
+              
+        font-size: 18px;
+        font-weight: bold;
+        color: aliceblue;
+      }
+      align-content: center;
+                background-color: #232E43; 
+    width:auto;
+                border-radius: 20px;
+
+        }
+            
+            p{
+              text-align: center;
+                font-family:poppins;
+            
+              
+                font-size: 15px;
+                font-weight: bold;
+                color: aliceblue;
+              
+              }
+           
+              google-map{
+                border-radius: 10px;
+                
+              }
+    }
+    .roundedInput {
+      font-family:poppins;
+  ion-textarea{
+      font-family:poppins;
+    
+  }
+  width: 90%;
+
+      --border-color:#04ADB2;;
+      --border-radius: 30px;
+      --border-width: 1px;
+      --box-shadow: 2px rgb(255, 255, 255);
+      --highlight-height: 0;
+      --background: none;
+     }
+     .locbutton{
+      ion-button{
+        font-family:poppins;
+    
+           left: 30%;
+    width: 80%;
+       color: #ffffff;
+        font-weight: bold;
+        --border-color: white;
+        --border-radius: 30px;
+        --border-width: 1px;
+        --box-shadow: 2px rgb(255, 255, 255);
+        --highlight-height: 0;
+        font-size: 13px;
+        --background: #232E43;
+       } 
+     }
+     ion-button{
+      font-family:poppins;
+  
+         left: 30%;
+  width: 40%;
+     color: #ffffff;
+      font-weight: bold;
+      --border-color: white;
+      --border-radius: 30px;
+      --border-width: 1px;
+      --box-shadow: 2px rgb(255, 255, 255);
+      --highlight-height: 0;
+      font-size: 18px;
+      --background: #04ADB2;
+     } 
+   
+    h5{
+        color: #232E43; 
+font-size: 23px;
+font-weight: bold;
+
+        ion-icon{
+        right: 0px;
+     bottom: 0px;
+        width: 30px;
+        height: 30px;
+
+      }
+      font-family: poppins;
+    }
+    h3{
+        text-align: center;
+     font-size: 22px;
+     color: white;
+     font-family: poppins;  
+    }
+    h4{
+        color: #232E43; 
+        font-size: 20px;
+        font-weight: bold;
+        font-family: poppins;
+    }
+    

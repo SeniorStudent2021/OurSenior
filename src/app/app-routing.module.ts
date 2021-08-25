@@ -101,6 +101,11 @@ const routes: Routes = [
     path: 'newservice/:id',
     loadChildren: () => import('./newservice/newservice.module').then( m => m.NewservicePageModule)
   },
+  {
+    path: 'editusers2/:id',
+    loadChildren: () => import('./editusers2/editusers2.module').then( m => m.Editusers2PageModule)
+  },
+
 
 
 

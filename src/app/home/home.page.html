@@ -63,6 +63,42 @@
     </ion-list>
 
   </span>
+  <span *ngIf="x.type == 'admin'"> 
+    <br>
+    <center>
+          <img  style="width:290px;" src="assets/homelogotest2.png">
+        </center>
+          <ion-list lines="none"> 
+      <br>
+            <ion-card routerLink="/editusers/{{id}}">
+              <center>
+                    <img  src="assets/editusers.png">
+                  </center>
+            </ion-card>
+            <div class="blue">
+              <ion-card routerLink="/editservices/{{id}}">
+                <center>
+                      <img  src="assets/editservice.png">
+                    </center>
+              </ion-card>
+          </div>
+          <ion-card routerLink="/vieworders/{{id}}">
+            <center>
+                  <img  src="assets/adminorders3.png">
+                </center>
+          </ion-card>
+          <div class="blue">
+
+          <ion-card routerLink="/profit/{{id}}">
+            <center>
+                  <img  src="assets/p.png">
+                </center>
+          </ion-card>
+          </div>
+
+          </ion-list>
+      </span> 
+    
 </span>
 </ng-container>
 </div>

@@ -56,7 +56,8 @@ this.appPages3 = [
     { title: 'Orders', url: '/vieworders/'+ this.uid, icon: 'flash' },
 
     { title: 'Payment statement', url: '/profit/'+ this.uid, icon: 'cash' }
-,
+,    { title: 'Account', url: '/profile/'+ this.uid, icon: 'person' }
+
  ];
        } });
     

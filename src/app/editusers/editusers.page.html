@@ -1,9 +1,39 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>editusers</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-toolbar  class="background">
+  <ion-buttons slot="start">
+    <ion-menu-button></ion-menu-button>
+  </ion-buttons>
+</ion-toolbar>
 
-<ion-content>
+<ion-content class="background">
+  
+  <h2>Edit users</h2>
+<br>
+  <ion-row>
+    
+    <ion-col>
+      <h4> &nbsp; Name</h4>
+  
+    </ion-col>
+    <ion-col>
+      <h4> &nbsp;&nbsp; Email</h4>
+  
+    </ion-col>
+  </ion-row>
+  <ng-container *ngFor="let x of datasrv.users| async;" >
+    <span *ngIf="x.id!=id">
+    <ion-row>
+      
+      <ion-col>
+        <ion-label (click)="edituser(x.id)">&nbsp;&nbsp;{{x.name}}</ion-label> 
+    
+      </ion-col>
+      <ion-col>
+        <ion-label (click)="edituser(x.id)"> &nbsp;&nbsp;{{x.email}}</ion-label> 
+
+      </ion-col>
+    </ion-row> 
+  </span>
+
+  </ng-container>
 
 </ion-content>

@@ -158,7 +158,7 @@ export class DataService {
         name: item.name, 
         email :item.email,
         mobile:item.mobile,
-      
+      type:item.type
         
         });
 
@@ -208,6 +208,40 @@ addservice(name,img){
         });
 
   }
+  async deleteuser(x) {
+    let alert =await  this.alertCtrl.create({
+      header: 'User Deleted',
+      cssClass: 'alertcolor',
+      message: 'The selected user has been deleted successfully ',
+      buttons: [{
+        text:'OK',
+        role:'ok',
+        cssClass:'alertbutton',
+
+      }]    })  
+          let alert2 =await  this.alertCtrl.create({
+        header: 'User not Deleted',
+        cssClass: 'alertcolor',
+        message: 'The selected user has not been deleted, please try again ',
+        buttons: [{
+          text:'OK',
+          role:'ok',
+          cssClass:'alertbutton',
+  
+        }]    })   
+    
+    this.usersCollectionRef.doc(x.id).delete().then((response)=>{
+        alert.present();
+    })
+    
+    .catch((err )=>{
+    
+      alert2.present();
+    
+    }) 
+
+}
+
 
  async deleteservice(id) {
     let alert =await  this.alertCtrl.create({

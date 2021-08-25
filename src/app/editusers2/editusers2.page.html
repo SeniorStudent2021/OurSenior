@@ -1,0 +1,52 @@
+
+<ion-toolbar  class="background">
+  <ion-buttons slot="start">
+    <ion-menu-button></ion-menu-button>
+
+    <ion-back-button></ion-back-button>
+
+  </ion-buttons>
+</ion-toolbar>
+<ion-content class="background">
+  <br><br>
+  <ng-container *ngFor="let x of datasrv.users|async;">
+  <span *ngIf="x.id == id"> 
+    <h2> {{x.name}}'s profile</h2>
+
+<br><br>
+ <h3>  &nbsp;  &nbsp;  &nbsp;Name:</h3>
+
+  <ion-item class="roundedInput">
+    <ion-input disabled > {{x.name}} </ion-input><br>
+  </ion-item>
+
+    <br>
+     <h3>&nbsp;  &nbsp;  &nbsp;Email:</h3>
+
+    <ion-item class="roundedInput">
+
+  <ion-input   type="email" disabled > {{x.email}} </ion-input>
+  </ion-item>
+<br>
+ <h3> &nbsp;  &nbsp;  &nbsp;Type:</h3>
+
+  <ion-item class="roundedInput">
+    <ion-select [(ngModel)]="x.type" value={{x.type}} placeholder={{x.type}}>
+      <ion-select-option value="admin">Admin</ion-select-option>
+      <ion-select-option value="customer">Customer</ion-select-option>
+      <ion-select-option value="provider">Provider</ion-select-option>
+    </ion-select>
+    </ion-item>
+     <br>
+    &nbsp;  &nbsp;     &nbsp;  &nbsp;    &nbsp;  &nbsp;  &nbsp;     &nbsp;  &nbsp;
+       &nbsp;  &nbsp; &nbsp;  &nbsp;<ion-button (click)="update(x)"  style="text-align:center">Update user </ion-button>
+       <center>
+         <div class="redbutton">
+        <ion-button (click)="delete(x)"  style="text-align:center;">Delete user </ion-button>
+         </div>
+      </center>
+    </span>
+   
+      </ng-container>
+      
+</ion-content>
