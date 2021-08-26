@@ -278,6 +278,40 @@ addservice(name,img){
 }
 
 
+async cancelorder(id) {
+  let alert =await  this.alertCtrl.create({
+    header: 'Request canceled',
+    cssClass: 'alertcolor',
+    message: 'The request has been Canceled',
+    buttons: [{
+      text:'OK',
+      role:'ok',
+      cssClass:'alertbutton',
+
+    }]    })
+    let alert2 =await  this.alertCtrl.create({
+      header: 'Request not canceled',
+      cssClass: 'alertcolor',
+      message: 'The request has not been canceled, please try again',
+      buttons: [{
+        text:'OK',
+        role:'ok',
+        cssClass:'alertbutton',
+  
+      }]    })
+  
+  this.ordersCollectionRef.doc(id).delete().then((response)=>{
+      alert.present();
+  })
+  
+  .catch((err )=>{
+  
+    alert2.present();
+  
+  }) 
+
+}
+
 
 addordertyre(customer,type,car,lat,long,notes,spare){
   if(notes==null){

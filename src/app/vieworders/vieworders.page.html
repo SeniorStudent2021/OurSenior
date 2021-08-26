@@ -1,9 +1,51 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>vieworders</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-toolbar  class="background">
+  <ion-buttons slot="start">
+    <ion-menu-button></ion-menu-button>
 
-<ion-content>
+    <ion-back-button></ion-back-button>
+
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content class="background">
+  <br>
+  <ion-segment [(ngModel)]="requests">
+    <ion-segment-button value="active">
+     <h2> Active requests </h2>
+    </ion-segment-button>
+    <ion-segment-button value="history">
+    <h2> Completed</h2> 
+    </ion-segment-button>
+  </ion-segment>
+
+
+  <div [ngSwitch]="requests">
+    <ion-list lines="none" *ngSwitchCase="'active'">
+      <ng-container *ngFor="let x of datasrv.orders| async;" >
+          <span *ngIf="x.status!='completed'">
+<ion-card (click)="details1(x.id)">
+<h3> &nbsp; {{x.type}} request {{x.id}}</h3>
+<p> &nbsp; <ion-icon name="calendar-outline"></ion-icon> &nbsp;{{x.date | date:'d-M-y h:mm a'}}</p>
+<p> &nbsp;  <ion-icon name="sync-circle-outline"></ion-icon> &nbsp; {{x.status}}</p>
+
+</ion-card>
+</span>
+</ng-container>
+    </ion-list>
+  </div>  
+
+  <div [ngSwitch]="requests">
+    <ion-list lines="none" *ngSwitchCase="'history'">
+      <ng-container *ngFor="let x of datasrv.orders| async;" >
+          <span *ngIf="x.status=='completed'">
+<ion-card  (click)="details2(x.id)">
+<h3> &nbsp; {{x.type}} request {{x.id}}</h3>
+<p> &nbsp; <ion-icon name="calendar-outline"></ion-icon> &nbsp;{{x.date | date:'d-M-y h:mm a'}}</p>
+<p> &nbsp;  <ion-icon name="sync-circle-outline"></ion-icon> &nbsp; {{x.status}}</p>
+</ion-card>
+</span>
+</ng-container>
+    </ion-list>
+  </div>  
 
 </ion-content>

@@ -1,0 +1,92 @@
+.roundedInput {
+    font-family:poppins;
+ion-input{
+    font-family:poppins;
+  
+}
+left: 8%;    width: 85%;
+    --border-color: white;
+    --border-radius: 30px;
+    --border-width: 1px;
+    --box-shadow: 2px rgb(255, 255, 255);
+    --highlight-height: 0;
+    --background: #ffffff;
+   }
+   .background{
+    ion-menu-button{
+        color:#232E43;
+        
+        }
+  
+    ion-card{
+        ion-item{
+         --ion-background-color:#04ADB2;
+          color: #04ADB2;
+        }
+        
+         background-color:  #04ADB2;
+         width: 340px;
+         height: 190px;
+       }
+ion-segment{
+h2{
+    font-family: poppins;
+    color: #232E43;
+    font-size: 20px;
+}
+    --background:#f3f6ff;
+    --ion-background-color:#f3f6ff;
+}
+    font-family:poppins;
+
+       --background:#f3f6ff;
+       --ion-background-color:#f3f6ff;
+   }
+   h2{
+    font-family:poppins;
+
+       text-align: center;
+       font-size: 40px;
+       font-weight:700 ;
+       color: #04AEB0;
+   }
+   ion-button{
+    font-family:poppins;
+position: relative;
+     left: 70%;
+     bottom: 30px;
+width: 25%;
+   color: #ffffff;
+    font-weight: bold;
+    --border-color: white;
+    --border-radius: 30px;
+    --border-width: 1px;
+    --box-shadow: 2px rgb(255, 255, 255);
+    --highlight-height: 0;
+    font-size: 16px;
+    --background: #232E43;
+   } 
+   p{
+font-size: 15px;
+color: white;
+font-family: poppins;
+
+   }
+   h3{
+       text-align: center;
+    font-size: 22px;
+    color: white;
+    font-family: poppins;  
+   }
+  .dark{
+      ion-card{
+    ion-item{
+     --ion-background-color:#232E43;
+      color: #04ADB2;
+    }
+    
+     background-color:  #232E43;
+     width: 340px;
+     height: 190px;
+   }
+}
