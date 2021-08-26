@@ -11,7 +11,7 @@
   <ion-row>
     
     <ion-col>
-      <h4> &nbsp; Name</h4>
+      <h4> &nbsp; &nbsp;  &nbsp;  Name</h4>
   
     </ion-col>
     <ion-col>
@@ -21,7 +21,7 @@
   </ion-row>
   <ng-container *ngFor="let x of datasrv.users| async;" >
     <span *ngIf="x.id!=id">
-    <ion-row>
+    <ion-item>
       
       <ion-col>
         <ion-label (click)="edituser(x.id)">&nbsp;&nbsp;{{x.name}}</ion-label> 
@@ -31,7 +31,7 @@
         <ion-label (click)="edituser(x.id)"> &nbsp;&nbsp;{{x.email}}</ion-label> 
 
       </ion-col>
-    </ion-row> 
+    </ion-item> 
   </span>
 
   </ng-container>
