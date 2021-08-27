@@ -47,7 +47,7 @@ export class ProfitPage implements OnInit {
   
   
   details(id,prov){
-      this.router.navigate(['/paymentdetails/'+id+'/'+prov])
+      this.router.navigate(['/paymentdetailsadmin/'+id+'/'+this.id])
   }
   
 

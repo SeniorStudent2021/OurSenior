@@ -22,9 +22,8 @@
   <div [ngSwitch]="requests">
     <ion-list lines="none" *ngSwitchCase="'active'">
       <ng-container *ngFor="let x of datasrv.orders| async;" >
-        <span *ngIf="x.customerid==id">
           <span *ngIf="x.status!='completed'">
-<ion-card>
+<ion-card (click)="details1(x.id)">
 <h3> &nbsp; {{x.type}} request {{x.id}}</h3>
 <p> &nbsp; <ion-icon name="calendar-outline"></ion-icon> &nbsp;{{x.date | date:'d-M-y h:mm a'}}</p>
 <p> &nbsp;  <ion-icon name="sync-circle-outline"></ion-icon> &nbsp; {{x.status}}</p>
@@ -33,7 +32,6 @@
 </span>
 </ion-card>
 </span>
-</span>
 </ng-container>
     </ion-list>
   </div>  
@@ -41,14 +39,12 @@
   <div [ngSwitch]="requests">
     <ion-list lines="none" *ngSwitchCase="'history'">
       <ng-container *ngFor="let x of datasrv.orders| async;" >
-        <span *ngIf="x.customerid==id">
           <span *ngIf="x.status=='completed'">
-<ion-card>
+<ion-card  (click)="details2(x.id)">
 <h3> &nbsp; {{x.type}} request {{x.id}}</h3>
 <p> &nbsp; <ion-icon name="calendar-outline"></ion-icon> &nbsp;{{x.date | date:'d-M-y h:mm a'}}</p>
 <p> &nbsp;  <ion-icon name="sync-circle-outline"></ion-icon> &nbsp; {{x.status}}</p>
 </ion-card>
-</span>
 </span>
 </ng-container>
     </ion-list>

@@ -105,6 +105,11 @@ const routes: Routes = [
     path: 'editusers2/:id',
     loadChildren: () => import('./editusers2/editusers2.module').then( m => m.Editusers2PageModule)
   },
+  {
+    path: 'paymentdetailsadmin/:id/:admin',
+    loadChildren: () => import('./paymentdetailsadmin/paymentdetailsadmin.module').then( m => m.PaymentdetailsadminPageModule)
+  },
+
 
 
 

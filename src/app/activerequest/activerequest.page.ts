@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { DataService } from '../data.service';
 })
 export class ActiverequestPage implements OnInit {
 public requests;
-  constructor(public route:ActivatedRoute,public datasrv:DataService) {
+  constructor(public route:ActivatedRoute,public datasrv:DataService,public router:Router) {
     this.requests="active";
    }
 public sub;
@@ -24,5 +24,13 @@ public id;
   }
 cancel(id){
   this.datasrv.cancelorder(id);
+}
+details1(id){
+  this.router.navigate(['/paymentdetailsadmin/'+id+'/'+this.id])
+
+}
+details2(id){
+  this.router.navigate(['/paymentdetailsadmin/'+id+'/'+this.id])
+
 }
 }

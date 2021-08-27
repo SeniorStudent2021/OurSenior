@@ -1,0 +1,117 @@
+
+       
+       .background{
+        --background:#f3f6ff;
+        ion-menu-button{
+          color: #232E43; 
+        }
+        .background{
+        
+               --ion-background-color:#f3f6ff;
+           }
+           h2{
+             font-size: 35px;
+             text-align: center;
+            font-family:poppins;
+               font-weight:700 ;
+            color:#04ADB2;
+           }
+                  ion-card{
+            
+                background-color: #04ADB2;
+            }
+            
+            
+            p{
+                font-family:poppins;
+            
+              
+                font-size: 15px;
+                font-weight: bold;
+                color: aliceblue;
+              
+              }
+              h3{
+                color:#232E43; ;
+                font-family:poppins;
+
+              }
+              google-map{
+                border-radius: 10px;
+                
+              }
+    }
+    .roundedInput {
+      font-family:poppins;
+  ion-textarea{
+      font-family:poppins;
+    
+  }
+  width: 90%;
+
+      --border-color:#04ADB2;;
+      --border-radius: 30px;
+      --border-width: 1px;
+      --box-shadow: 2px rgb(255, 255, 255);
+      --highlight-height: 0;
+      --background: none;
+     }
+     .locbutton{
+      ion-button{
+        font-family:poppins;
+    
+           left: 30%;
+    width: 80%;
+       color: #ffffff;
+        font-weight: bold;
+        --border-color: white;
+        --border-radius: 30px;
+        --border-width: 1px;
+        --box-shadow: 2px rgb(255, 255, 255);
+        --highlight-height: 0;
+        font-size: 13px;
+        --background: #232E43;
+       } 
+     }
+     ion-button{
+      font-family:poppins;
+  
+         left: 30%;
+  width: 50%;
+     color: #ffffff;
+      font-weight: bold;
+      --border-color: white;
+      --border-radius: 30px;
+      --border-width: 1px;
+      --box-shadow: 2px rgb(255, 255, 255);
+      --highlight-height: 0;
+      font-size: 18px;
+      font-weight: 600;
+      --background: #04ADB2;
+      height: 40px;
+     } 
+   
+    h5{
+      color: #ffffff;
+      ion-icon{
+        right: 0px;
+     bottom: 0px;
+        width: 30px;
+        height: 30px;
+      }
+      font-family: poppins;
+    }
+    ion-item{
+        ion-label{
+        color:#232E43; ;
+        font-family:poppins;
+       font-size: 23px; 
+        } 
+    }
+    ion-input{
+        color:#232E43; ;
+        font-family:poppins;
+       font-size: 20px; 
+    }
+   
+  

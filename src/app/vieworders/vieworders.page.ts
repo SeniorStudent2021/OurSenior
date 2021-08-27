@@ -23,9 +23,11 @@ public id;
   });
   }
   details1(id){
+    this.router.navigate(['/paymentdetailsadmin/'+id+'/'+this.id])
 
   }
   details2(id){
+    this.router.navigate(['/paymentdetailsadmin/'+id+'/'+this.id])
 
   }
 }
