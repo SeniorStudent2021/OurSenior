@@ -66,21 +66,31 @@ this.appPages3 = [
   public latit=0;
   public longit=0;
   public link;
+ 
   constructor(public geolocation: Geolocation, public router:Router,public afAuth: AngularFireAuth, public datasrv:DataService) {
 
     const authObserver = afAuth.authState.subscribe( 
       user => {
        if (user) {
 
-        this.rootPage = '/home/'+ user.uid;
+
+        this.router.navigate(['/home/'+user.uid]); 
+
+      //  this.rootPage = '/home/'+ user.uid;
 
         authObserver.unsubscribe();
+
        } else {
-        this.rootPage = 'login';
+
+
+        this.router.navigateByUrl('/login'); 
+
+       // this.rootPage = 'login';
         authObserver.unsubscribe();
+
        }
       });
-      
+
             
       this.mapTypeId= google.maps.MapTypeId.SATELLITE;
       this.geolocation.getCurrentPosition().then((resp) => {
@@ -139,4 +149,5 @@ this.appPages3 = [
      this.router.navigate(['/login']); 
  
 }
+
  }

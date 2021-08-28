@@ -373,4 +373,5 @@ completeorder(orderid,price): Promise<any> {
 
       
 }
+public showsplash=0;
 }

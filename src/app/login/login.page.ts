@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,12 @@ import { AlertController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
 
-  constructor(public afAuth:AngularFireAuth,public router:Router,public alertCtrl:AlertController) { }
+  constructor(public datasrv:DataService,public afAuth:AngularFireAuth,public router:Router,public alertCtrl:AlertController) {
+// if(this.datasrv.showsplash==0){
+  // this.datasrv.showsplash=1;
+    //this.initializeapp();
+ //}
+   }
 
   ngOnInit() {
   }
@@ -43,6 +49,8 @@ export class LoginPage implements OnInit {
     )
     
     }
-
+    initializeapp(){
+      this.router.navigateByUrl("splash");
+        }
    
 }

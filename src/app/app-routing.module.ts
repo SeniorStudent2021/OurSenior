@@ -108,7 +108,11 @@ const routes: Routes = [
   {
     path: 'paymentdetailsadmin/:id/:admin',
     loadChildren: () => import('./paymentdetailsadmin/paymentdetailsadmin.module').then( m => m.PaymentdetailsadminPageModule)
+  },  {
+    path: 'splash',
+    loadChildren: () => import('./splash/splash.module').then( m => m.SplashPageModule)
   },
+
 
 
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
 
 @Component({
@@ -9,7 +9,9 @@ import { DataService } from '../data.service';
 })
 export class HomePage implements OnInit {
 
-  constructor(public datasrv:DataService, public route:ActivatedRoute) { }
+  constructor(public datasrv:DataService, public route:ActivatedRoute,public router:Router) { 
+  //  this.initializeapp();
+  }
 public id;
 public sub;
   ngOnInit() {
@@ -18,5 +20,7 @@ public sub;
     
   });
   }
-
+  initializeapp(){
+    this.router.navigateByUrl("splash");
+      }
 }
