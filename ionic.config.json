@@ -1,5 +1,7 @@
 {
   "name": "RoadSide",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

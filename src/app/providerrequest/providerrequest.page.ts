@@ -19,7 +19,14 @@ public sub;
     
   });
   }
+  doRefresh(event) {
+    console.log('Begin async operation');
 
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 2000);
+  }
 
 details(id,y,z,x){
           this.router.navigate(['/details/'+id+'/'+y+'/'+z+'/'+this.id]);

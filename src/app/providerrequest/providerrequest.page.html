@@ -4,7 +4,9 @@
   </ion-buttons>
 </ion-toolbar>
 <ion-content class="background">
-
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 <h2>Pending Requests</h2>
 <br>
   <ng-container *ngFor="let x of datasrv.orders| async;" >
