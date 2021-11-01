@@ -18,6 +18,8 @@ export class ProfitPage implements OnInit {
   public profit:number=0 ;
   public net:number=0;
   public tax:number;
+  public tasleehEarning:number;
+  public index:number=0;
     ngOnInit() {
       this.sub = this.route.params.subscribe(params => {
         this.id = params['id']; 
@@ -37,10 +39,12 @@ export class ProfitPage implements OnInit {
         if(element.status=="completed"){
          
         this.profit+=element.price
+        this.index++;
         }
       });
   this.tax=this.profit*0.15;    
   this.net=this.profit-this.tax;
+  this.tasleehEarning=this.index*1.05;
     })
   }
   

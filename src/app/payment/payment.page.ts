@@ -19,6 +19,8 @@ public x;
 public profit:number=0 ;
 public net:number=0;
 public tax:number;
+public index:number=0;
+public tasleehEarning:number=0;
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = params['id']; 
@@ -37,11 +39,13 @@ public tax:number;
     this.array.forEach(element => {
       if(element.status=="completed"){
         if(element.providerid==this.id){
-      this.profit+=element.price
+      this.profit+=element.price;
+      this.index++;
       }}
     });
 this.tax=this.profit*0.15;    
-this.net=this.profit-this.tax;
+this.tasleehEarning = this.index*1.05;
+this.net=this.profit-this.tasleehEarning;
   })
 }
 
