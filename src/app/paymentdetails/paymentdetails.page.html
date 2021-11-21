@@ -20,7 +20,7 @@
 
 <ion-card >
   <p> &nbsp; &nbsp;Request ID: {{x.id}}</p> 
-  <p> &nbsp; &nbsp;Request Date: {{x.date | date:'d-M-y h:mm a'}}</p> 
+  <p *ngIf="x.date"> &nbsp; &nbsp; Request Date: {{x.date?.toDate() | date:'d-M-y h:mm a'}}</p>
   <p> &nbsp; &nbsp;Request status: {{x.status}}</p> 
 
 <p> &nbsp; &nbsp;Customer name: {{z.name}}</p>

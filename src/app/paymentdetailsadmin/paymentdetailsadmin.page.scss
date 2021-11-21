@@ -75,9 +75,9 @@
      }
      ion-button{
       font-family:poppins;
-  
-         left: 30%;
-  width: 50%;
+  right: 10%;
+       left: 0% !important;
+  width: 70%;
      color: #ffffff;
       font-weight: bold;
       --border-color: white;
@@ -87,7 +87,7 @@
       --highlight-height: 0;
       font-size: 18px;
       font-weight: 600;
-      --background: #04ADB2;
+      --background: #232E43;
       height: 40px;
      } 
    
@@ -113,5 +113,24 @@
         font-family:poppins;
        font-size: 20px; 
     }
-   
-  
+    ion-label{
+      font-weight: bold;
+      font-family: poppins;
+  }
+  ion-item{
+    --ion-background-color:#f3f6ff;
+    left: 0px;
+    width: 100%;
+  }
+  .h4{
+    ion-row{
+      ion-col{
+    
+    h4{
+      font-family: poppins;
+      color:#04ADB2;
+      font-weight: bold;
+
+    }
+  }}
+  }

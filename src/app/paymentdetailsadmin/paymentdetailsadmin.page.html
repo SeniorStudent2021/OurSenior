@@ -5,9 +5,11 @@
 </ion-toolbar>
 <ion-content class="background">
  
+
+
   <ng-container *ngFor="let x of datasrv.orders|async;">
     <span *ngIf="x.id==id">
-
+      <span *ngIf="x.status!='pending'">
 <h2>{{x.type}} request details</h2>
 
 <ng-container *ngFor="let y of datasrv.vehicles|async;">
@@ -20,7 +22,9 @@
 
 <ion-card >
   <p> &nbsp; &nbsp;Request ID: {{x.id}}</p> 
-  <p> &nbsp; &nbsp;Request Date: {{x.date | date:'d-M-y h:mm a'}}</p> 
+  
+  <p *ngIf="x.date"> &nbsp; &nbsp;Request Date: {{x.date?.toDate() | date:'d-M-y h:mm a'}}</p> 
+
   <p> &nbsp; &nbsp;Request status: {{x.status}}</p> 
   <ng-container *ngFor="let n of datasrv.users|async;">
     <span *ngIf="n.id == x.providerid">
@@ -28,13 +32,27 @@
       <p> &nbsp; &nbsp;Provider number: {{n.mobile}}</p> 
     </span>
   </ng-container>
+  <ng-container *ngFor="let c of datasrv.users|async;">
+    <span *ngIf="c.id==prov">
+      <span *ngIf="c.type=='admin'">
+
 <p> &nbsp; &nbsp;Customer name: {{z.name}}</p>
  <p> &nbsp; &nbsp;Customer number: {{z.mobile}}</p>
 <p> &nbsp; &nbsp;Car Company: {{y.company}}</p>
 <p> &nbsp; &nbsp;Car series: {{y.series}}</p> 
 <p> &nbsp; &nbsp;Model year: {{y.year}}</p> 
 <p> &nbsp; &nbsp;Plate no: {{y.plateno}}</p> 
+      </span>
+      <span *ngIf="c.type=='customer'">
 
+      
+        <p> &nbsp; &nbsp;Car Company: {{y.company}}</p>
+        <p> &nbsp; &nbsp;Car series: {{y.series}}</p> 
+       
+        <p> &nbsp; &nbsp;Plate no: {{y.plateno}}</p> 
+              </span>
+      </span>
+      </ng-container>
 </ion-card>
 </span>
   </ng-container>
@@ -52,25 +70,135 @@
 </center>
   </span>
 
-
+<span *ngIf="x.status!='pending'">
   <ion-item lines="none"class="background">
-    <span *ngIf="x.price==null">
-      <ion-label>&nbsp;Price: &nbsp; Not decided yet</ion-label>
-
-    </span>
-    <span *ngIf="x.price!=null">
+    
 
     <ion-label>&nbsp;Price: &nbsp; {{x.price}} BD</ion-label>
-  </span>
+  
 
  
-</ion-item>
+</ion-item></span>
 <br>
 
 
     </span>
+   
+    <span *ngIf="x.status=='pending'">
+      <h2>{{x.type}} request details</h2>
+      
+      <ng-container *ngFor="let y of datasrv.vehicles|async;">
+        <span *ngIf="y.customerid == x.customerid"> 
+        <span *ngIf="y.id == x.car"> 
+        <ng-container *ngFor="let z of datasrv.users|async;">
+      <span *ngIf="z.id == x.customerid">
+        <br>
+        <h3>  &nbsp; &nbsp;Request information</h3>
+      
+      <ion-card >
+        <p> &nbsp; &nbsp;Request ID: {{x.id}}</p> 
+        <p> &nbsp; &nbsp;Request Date: {{x.date | date:'d-M-y h:mm a'}}</p> 
+        <p> &nbsp; &nbsp;Request status: {{x.status}}</p> 
+        <ng-container *ngFor="let n of datasrv.users|async;">
+          <span *ngIf="n.id == x.providerid">
+            <p> &nbsp; &nbsp;Provider name: {{n.name}}</p>
+            <p> &nbsp; &nbsp;Provider number: {{n.mobile}}</p> 
+          </span>
+        </ng-container>
+      <p> &nbsp; &nbsp;Customer name: {{z.name}}</p>
+       <p> &nbsp; &nbsp;Customer number: {{z.mobile}}</p>
+      <p> &nbsp; &nbsp;Car Company: {{y.company}}</p>
+      <p> &nbsp; &nbsp;Car series: {{y.series}}</p> 
+      <p> &nbsp; &nbsp;Model year: {{y.year}}</p> 
+      <p> &nbsp; &nbsp;Plate no: {{y.plateno}}</p> 
+      
+      </ion-card>
+      </span>
+        </ng-container>
+        </span>
+        </span>
+      </ng-container>
+      
+      <span *ngIf="x.notes!=null">
+      <h3>  &nbsp; &nbsp;Customer notes</h3>
+      <center>
+      
+      <ion-item lines="none"class="roundedInput">
+        <ion-textarea readonly [(ngModel)]="x.notes" ></ion-textarea>
+        </ion-item>
+      </center>
+        </span>
+      <br>
+       <ng-container *ngFor="let c of datasrv.users|async;">
+    <span *ngIf="c.id==prov">
+      <span *ngIf="c.type=='customer'">
+
+      <h2>Providers offers</h2>
+      <br>
+      <div class="h4">
+        <ion-row>
+          
+          <ion-col>
+            <h4>   Name</h4>
+        
+          </ion-col>
+          <ion-col>
+            <h4>  Price</h4>
+        
+          </ion-col>
+          <ion-col>
+            <h4>  Time</h4>
+        
+          </ion-col>
+          <ion-col>
+            <h4>  Accept?</h4>
+        
+          </ion-col>
+
+        </ion-row>
+      </div>
+        <ng-container *ngFor="let b of datasrv.serveoffers| async;" >
+          <span *ngIf="b.orderid==x.id">
+            <ng-container *ngFor="let l of datasrv.users| async;" >
+              <span *ngIf="b.provider==l.id">
+          <ion-row>
+          
+            <ion-col>
+              <h4>{{l.name}}</h4> 
+          
+            </ion-col>
+            <ion-col>
+              <h4> &nbsp; {{b.price}} BD</h4> 
+      
+            </ion-col>
+            <ion-col>
+              <h4 >&nbsp;{{b.time}} Mins</h4> 
+      
+            </ion-col>
+            <ion-col>
+              &nbsp; &nbsp; <ion-button (click)="accept(l.id,b.price,x.id)"> Accept</ion-button>
+      
+            </ion-col>
+          
+          </ion-row> 
+        </span>
+      </ng-container>
+        </span>
+      
+        </ng-container>
+      </span>
+    </span>
+       </ng-container>
+      <br>
+      
+      
+          </span>
+    </span>      
 </ng-container>
   
 
+     
 
+
+  
 </ion-content>

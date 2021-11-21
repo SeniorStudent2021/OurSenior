@@ -48,21 +48,7 @@ scrollwheel: false;
 disableDoubleClickZoom: true;
 
 async completed(id,price){
-  let alert2 =await  this.alertCtrl.create({
-    header: 'Price not entered',
-    cssClass: 'alertcolor',
-    message: 'Please enter the service price',
-    buttons: [{
-      text:'OK',
-      role:'ok',
-      cssClass:'alertbutton',
 
-    }]  
-    })
-  if (this.price==null){
-    alert2.present();
-
-}
   let alert =await  this.alertCtrl.create({
     header: 'Request Completed',
     cssClass: 'alertcolor',
@@ -75,7 +61,7 @@ async completed(id,price){
     }]  
     })
 
-    this.datasrv.completeorder(id,price);
+    this.datasrv.completeorder(id);
     this.router.navigate(['/home/'+this.provid]).then((respone)=>{
 
     

@@ -60,13 +60,13 @@
 
 
   <ion-item lines="none"class="background">
-    <ion-label>&nbsp;Price: &nbsp;</ion-label>
+    <ion-label>&nbsp;Price: &nbsp; {{x.price}} BD</ion-label>
 
-  <ion-input placeholder="Enter price in BD" type="number"[(ngModel)]="price"></ion-input>
+  
 </ion-item>
 <br>
 <center>
-<ion-button (click)="completed(x.id,price)">Order completed</ion-button>
+<ion-button (click)="completed(x.id)">Order completed</ion-button>
 </center>
 
     </span>

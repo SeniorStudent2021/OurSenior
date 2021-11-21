@@ -25,7 +25,7 @@ export class AppComponent {
     { title: 'Services', url:'/services/'+ this.uid, icon: 'cog' },
     { title: 'My requests', url: '/activerequest/'+ this.uid, icon: 'flash' },
 
-    { title: 'Add vehicle', url: '/addvehicle/'+ this.uid, icon: 'car' }
+    { title: 'My vehicles', url: '/mycars/'+ this.uid, icon: 'car' }
 ,
 
 

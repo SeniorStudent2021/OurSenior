@@ -64,11 +64,11 @@ public prov;
   zoomControl: false;
   scrollwheel: false;
   disableDoubleClickZoom: true;
- async serve(orderid){
+ async serve(orderid,price,time){
   let alert =await  this.alertCtrl.create({
-    header: 'Request accepted',
+    header: 'Offer sent',
     cssClass: 'alertcolor',
-    message: 'The customer is waiting for you ',
+    message: 'Your serve offer is sent to the customer',
     buttons: [{
       text:'OK',
       role:'ok',
@@ -76,11 +76,11 @@ public prov;
 
     }]  
     })
-
-this.datasrv.updateorder(orderid,this.prov);
-    this.router.navigate(['/current/'+this.prov]).then((respone)=>{
+this.datasrv.addserveoffer(orderid,this.prov,price,time);
+//this.datasrv.updateorder(orderid,this.prov);
+  //  this.router.navigate(['/current/'+this.prov]).then((respone)=>{
       alert.present();
-    });
+    //});
     
   }
 }

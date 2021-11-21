@@ -69,7 +69,17 @@
 <ion-button href={{link}}>Open on google maps &nbsp; <ion-icon name="navigate-outline"></ion-icon></ion-button>
 </div>
 <br>
-<ion-button (click)="serve(x.id)"> Serve &nbsp; <ion-icon name="car-outline"></ion-icon></ion-button>
+<ion-item lines="none"class="roundedInput">
+  <ion-input  [(ngModel)]="price" type="number" placeholder="Enter your price (in BD)">  </ion-input><br>
+</ion-item>
+<br>
+<ion-item lines="none" class="roundedInput">
+  <ion-input [(ngModel)]="time" type="number" placeholder="Enter your estimated time (in min)">  </ion-input><br>
+</ion-item>
+ 
+
+<br>
+<ion-button (click)="serve(x.id,price,time)"> Offer help  &nbsp; <ion-icon name="hammer-outline"></ion-icon> </ion-button>
 
 </center>
     </span>

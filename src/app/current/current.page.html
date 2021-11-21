@@ -12,7 +12,7 @@
       <span *ngIf="x.status=='serving'">
 <ion-card (click)="activedetails(x.id,x.latitude,x.longtitude)">
 <h3> &nbsp; {{x.type}} request {{x.id}}</h3>
-<p> &nbsp; <ion-icon name="calendar-outline"></ion-icon> &nbsp;{{x.date | date:'d-M-y h:mm a'}}</p>
+<p *ngIf="x.date"> &nbsp; <ion-icon name="calendar-outline"></ion-icon> &nbsp;{{x.date?.toDate() | date:'d-M-y h:mm a'}}</p>
 <p> &nbsp;  <ion-icon name="sync-circle-outline"></ion-icon> &nbsp; {{x.status}}</p>
 </ion-card>
 </span>

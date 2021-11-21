@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 import 'firebase/firestore';
 import * as firebase from 'firebase/app';
 import { AlertController } from '@ionic/angular';
+import { ProviderAst } from '@angular/compiler';
 
 
 
@@ -18,6 +19,15 @@ export interface User {
   name?: string,
   mobile?:number,
   type?:any;
+
+}
+export interface Serveoffers {
+  orderid?:string,
+  id?:string,
+  provider?:string,
+  price?: string,
+  time?:number,
+ 
 
 }
 export interface Services {
@@ -69,7 +79,14 @@ export class DataService {
 
   vehicles:Observable<Vehicle[]>;
   vehiclesCollectionRef:AngularFirestoreCollection<Vehicle>;
+
+  serveoffers:Observable<Serveoffers[]>;
+  serveoffersCollectionRef:AngularFirestoreCollection<Serveoffers>;
+
   constructor(public afAuth: AngularFireAuth, public afs: AngularFirestore,public alertCtrl:AlertController) { 
+  
+    
+  
     this.usersCollectionRef = this.afs.collection('Users'); 
        // this.products = this.productsCollectionRef.valueChanges();
         this.users=this.usersCollectionRef.snapshotChanges().pipe(
@@ -88,6 +105,25 @@ export class DataService {
     
           })
         );
+        this.serveoffersCollectionRef = this.afs.collection('Serveoffers'); 
+           // this.products = this.productsCollectionRef.valueChanges();
+            this.serveoffers=this.serveoffersCollectionRef.snapshotChanges().pipe(
+        
+              map(actions => {
+        
+                return actions.map(a => {
+        
+                  const data = a.payload.doc.data();
+        
+                  const id = a.payload.doc.id;
+        
+                  return { id, ...data };
+        
+                });
+        
+              })
+            );
+    
 
 
         this.servicesCollectionRef = this.afs.collection('Services'); 
@@ -109,7 +145,8 @@ export class DataService {
               })
             );
     
-        this.ordersCollectionRef = this.afs.collection('Orders'); 
+        this.ordersCollectionRef = this.afs.collection('Orders', ref => 
+        ref.orderBy('date','desc')); 
        // this.products = this.productsCollectionRef.valueChanges();
         this.orders=this.ordersCollectionRef.snapshotChanges().pipe(
     
@@ -150,6 +187,9 @@ export class DataService {
     
         );
 
+
+
+        
   }
 
   Updateprofile(item:User): Promise<any> {
@@ -178,7 +218,7 @@ addorder(customer,type,car,lat,long,notes){
       latitude:lat,
       longtitude:long,
       status:"pending",
-      date:this.date.toString()
+      date:firebase.default.firestore.FieldValue.serverTimestamp()
         });
   
 
@@ -208,6 +248,43 @@ addservice(name,img){
         });
 
   }
+  addserveoffer(orderid,provider,price,time){
+ 
+    return this.serveoffersCollectionRef.add({
+      orderid:orderid,
+      provider:provider,
+   price:price,
+   time:time
+        });
+
+  }
+  public array=[];
+  deleteserveoffer(orderid){
+    this.afs.collection("Orders").snapshotChanges().pipe(
+      map(requests => {
+         let requestListingModel = {
+            items: []
+         }
+        
+
+         requests.map(a => {
+            let data = a.payload.doc.data() 
+            
+
+           this.array.push(data);
+         });
+
+         return requestListingModel;
+      })
+   );
+ this.array.forEach(element => {
+        if(element.orderid==orderid){
+          this.ordersCollectionRef.doc(element.id).delete()
+        }
+      });
+
+    
+}
   async deleteuser(x) {
     let alert =await  this.alertCtrl.create({
       header: 'User Deleted',
@@ -351,22 +428,23 @@ this.date=new Date();
 }
 }
 
-updateorder(orderid,provid): Promise<any> {
+updateorder(orderid,provid,price): Promise<any> {
 
   return this.ordersCollectionRef.doc(orderid).update( {
     status:"serving",
-    providerid:provid
+    providerid:provid,
+    price:price
 
       
       });
 
       
 }
-completeorder(orderid,price): Promise<any> {
+completeorder(orderid): Promise<any> {
 
   return this.ordersCollectionRef.doc(orderid).update( {
-    status:"completed",
-    price:price
+    status:"completed"
+   
 
       
       });

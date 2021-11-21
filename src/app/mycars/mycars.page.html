@@ -1,0 +1,37 @@
+<ion-toolbar  class="background">
+  <ion-buttons slot="start">
+    <ion-menu-button></ion-menu-button>
+  </ion-buttons>
+</ion-toolbar>
+<ion-fab vertical="top" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="addcar()">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+<ion-content class="background">
+  <br><br>
+<h2>  My Vehicles </h2>
+
+<ng-container *ngFor="let x of datasrv.vehicles|async;">
+  <span *ngIf="x.customerid == id"> 
+      
+<ion-card>
+  <ion-row>
+<ion-col size="8.5">
+<p> &nbsp; &nbsp;Car Company: {{x.company}}</p>
+<p> &nbsp; &nbsp;Car series: {{x.series}}</p> 
+<p> &nbsp; &nbsp;Model year: {{x.year}}</p> 
+<p> &nbsp; &nbsp;Plate no: {{x.plateno}} </p> 
+</ion-col>
+<ion-col>
+<br> <br> <br> <br><br>
+<br> <br> <br> <br><br>
+<ion-button (click)="deletecar(x.id)">   Delete</ion-button>   
+</ion-col>
+</ion-row>
+
+</ion-card>
+  </span>
+  
+</ng-container>
+</ion-content>

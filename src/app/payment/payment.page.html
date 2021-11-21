@@ -35,8 +35,8 @@
 
       <ion-row>
         <ion-col size="5">
-          <p (click)="details(x.id,x.providerid)"> &nbsp;  {{x.date | date:'d-M-y h:mm a'}}</p>
-      
+          <p  (click)="details(x.id,x.providerid)"*ngIf="x.date"> &nbsp;{{x.date?.toDate() | date:'d-M-y h:mm a'}}</p>
+
         </ion-col>
         <ion-col>
           <p (click)="details(x.id,x.providerid)"> &nbsp; {{x.type}}</p>

@@ -108,10 +108,23 @@ const routes: Routes = [
   {
     path: 'paymentdetailsadmin/:id/:admin',
     loadChildren: () => import('./paymentdetailsadmin/paymentdetailsadmin.module').then( m => m.PaymentdetailsadminPageModule)
-  },  {
+  },
+  {
     path: 'splash',
     loadChildren: () => import('./splash/splash.module').then( m => m.SplashPageModule)
   },
+  {
+    path: 'mycars/:id',
+    loadChildren: () => import('./mycars/mycars.module').then( m => m.MycarsPageModule)
+  },  {
+    path: 'trackprovider',
+    loadChildren: () => import('./trackprovider/trackprovider.module').then( m => m.TrackproviderPageModule)
+  },
+  {
+    path: 'chat',
+    loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
+  },
+
 
 
 
