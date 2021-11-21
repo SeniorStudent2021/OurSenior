@@ -6,6 +6,7 @@
     resize: none;
     margin-top: 0px;
     --padding-start: 8px;
+    font-family: poppins;
 }
  
 .message {
@@ -13,20 +14,39 @@
     border-radius: 10px !important;
     margin-bottom: 4px !important;
     white-space: pre-wrap;
+    font-family: poppins;
+
 }
  
 .my-message {
-    background: var(--ion-color-tertiary);
-    color: #fff;
+    background: #232E43;
+    color: white;
+    font-family: poppins;
+
 }
  
 .other-message {
-    background: var(--ion-color-secondary);
-    color: #fff;
+    background:#04ADB2;
+    color: white;
+    font-family: poppins;
+
 }
  
 .time {
     color: #dfdfdf;
     float: right;
     font-size: small;
+    font-family: poppins;
+
 }
+ion-toolbar{
+    --background: #232E43;
+    --color: white;
+    font-family: poppins;
+}
+ion-content{
+    --background:#f3f6ff;
+    --ion-background-color:#f3f6ff;}
+
+   
+   
