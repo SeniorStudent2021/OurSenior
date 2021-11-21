@@ -71,4 +71,8 @@ async completed(id,price){
 
 
 }
+
+chat(orderid,customer,provider){
+  this.router.navigate(['/chat/'+orderid+'/'+customer+'/'+provider])
+}
 }

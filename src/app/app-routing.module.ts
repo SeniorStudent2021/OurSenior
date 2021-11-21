@@ -116,12 +116,13 @@ const routes: Routes = [
   {
     path: 'mycars/:id',
     loadChildren: () => import('./mycars/mycars.module').then( m => m.MycarsPageModule)
-  },  {
+  },
+  {
     path: 'trackprovider',
     loadChildren: () => import('./trackprovider/trackprovider.module').then( m => m.TrackproviderPageModule)
   },
   {
-    path: 'chat',
+    path: 'chat/:order/:customer/:provider',
     loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
   },
 

@@ -40,4 +40,7 @@ async accept(provider,price,orderid){
   this.datasrv.deleteserveoffer(orderid);
   
 }
+chat(orderid,customer,provider){
+  this.router.navigate(['/chat/'+orderid+'/'+customer+'/'+provider])
+}
 }

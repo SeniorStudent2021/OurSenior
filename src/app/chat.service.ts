@@ -15,8 +15,10 @@ export interface Message {
   id: string;
   from: string;
   msg: string;
-  fromName: string;
+  fromName?: string;
   myMsg: boolean;
+  to?:any;
+  orderid?:any;
 }
  
 @Injectable({
@@ -32,11 +34,13 @@ export class ChatService {
   }
 
 
-  addChatMessage(msg) {
+  addChatMessage(msg,orderid,to) {
     return this.afs.collection('messages').add({
       msg: msg,
       from: this.currentUser.uid,
-      createdAt: firebase.default.firestore.FieldValue.serverTimestamp()
+      createdAt: firebase.default.firestore.FieldValue.serverTimestamp(),
+      to:to,
+      orderid:orderid
     });
   }
    
@@ -50,7 +54,7 @@ export class ChatService {
       map(messages => {
         // Get the real name for each user
         for (let m of messages) {          
-          m.fromName = this.getUserForMsg(m.from, users);
+         // m.fromName = this.getUserForMsg(m.from, users);
           m.myMsg = this.currentUser.uid === m.from;
         }        
         return messages
@@ -62,12 +66,12 @@ export class ChatService {
     return this.afs.collection('users').valueChanges({ idField: 'uid' }) as Observable<User[]>;
   }
    
-  private getUserForMsg(msgFromId, users: User[]): string {    
+  /*private getUserForMsg(msgFromId, users: User[]): string {    
     for (let usr of users) {
       if (usr.uid == msgFromId) {
         return usr.email;
       }
     }
     return 'Deleted';
-  }
+  }*/
 }
