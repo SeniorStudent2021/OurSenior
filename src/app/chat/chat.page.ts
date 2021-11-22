@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AlertController, IonContent } from '@ionic/angular';
+import { AlertController, IonContent, NavController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ChatService } from '../chat.service';
@@ -16,7 +16,7 @@ export class ChatPage implements OnInit {
   messages: Observable<any[]>;
   newMsg = '';
  
-  constructor( private chatService: ChatService, public alertCtrl:AlertController,public router:Router,public datasrv:DataService, public route:ActivatedRoute) { }
+  constructor( public navCtrl: NavController,private chatService: ChatService, public alertCtrl:AlertController,public router:Router,public datasrv:DataService, public route:ActivatedRoute) { }
   public orderid;
   public customer;
   public array:any[]=[];
@@ -44,6 +44,8 @@ export class ChatPage implements OnInit {
     });
   }
  
- 
+ back(){
+  this.navCtrl.back();
+ }
  
 }

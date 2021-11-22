@@ -85,6 +85,7 @@
 <ng-container *ngFor="let c of datasrv.users|async;">
   <span *ngIf="c.id==prov">
     <span *ngIf="c.type=='customer'">
+    
       <ion-fab vertical="bottom" horizontal="end" edge slot="fixed">
         
           <ion-icon (click)="chat(x.id,x.customerid,x.providerid)" name="chatbubbles"></ion-icon>

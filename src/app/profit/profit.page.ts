@@ -38,7 +38,7 @@ export class ProfitPage implements OnInit {
       this.array.forEach(element => {
         if(element.status=="completed"){
          
-        this.profit+=element.price
+        this.profit+=parseFloat(element.price);
         this.index++;
         }
       });
