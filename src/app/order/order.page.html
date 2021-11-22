@@ -63,7 +63,24 @@
 </center>
 </h3>
 </span>
-
+<span *ngIf="type=='Fuel'">
+  <h3>&nbsp;&nbsp;&nbsp;&nbsp;Select Fuel type: <br>
+  
+  <center>
+    <ion-radio-group  (ionChange)="Handler($event)" value="biff">
+     
+      <ion-radio slot="start" value="Jayyed"></ion-radio>
+  
+        <ion-label>Jayyed</ion-label>
+   &nbsp;  &nbsp;
+        <ion-radio slot="start" value="Mumtaz"></ion-radio>
+  
+        <ion-label>Mumtaz</ion-label>
+      
+    </ion-radio-group>
+  </center>
+  </h3>
+  </span>
 
 
 <h3>&nbsp;&nbsp;&nbsp;&nbsp;Pricing:</h3>

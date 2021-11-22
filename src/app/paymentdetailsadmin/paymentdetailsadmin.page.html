@@ -52,12 +52,24 @@
         <p> &nbsp; &nbsp;Plate no: {{y.plateno}}</p> 
               </span>
       </span>
+    
       </ng-container>
+      <span *ngIf="x.type=='Flat tyre'">
+
+        <p> &nbsp; &nbsp;Spare tyre availablity: {{x.spare}}</p> 
+      
+      </span>
+      <span *ngIf="x.type=='Fuel'">
+      
+        <p> &nbsp; &nbsp;Fuel type: {{x.spare}}</p> 
+      
+      </span>
 </ion-card>
 </span>
   </ng-container>
   </span>
   </span>
+  
 </ng-container>
 
 <span *ngIf="x.notes!=null">
@@ -71,32 +83,37 @@
   </span>
 
 <span *ngIf="x.status!='pending'">
-  <ion-item lines="none"class="background">
-    
-
-    <ion-label>&nbsp;Price: &nbsp; {{x.price}} BD</ion-label>
+  <center>
   
-
- 
-</ion-item></span>
+   
+<ion-button  class="price" aria-readonly="" fill="outline">
+    <ion-label>Price: {{x.price}} BD</ion-label>
+  
+  </ion-button>
+</center>
+</span>
 <br>
 <span *ngIf="x.status=='serving'">
 
 <ng-container *ngFor="let c of datasrv.users|async;">
   <span *ngIf="c.id==prov">
     <span *ngIf="c.type=='customer'">
+    <div >
+     <br>
+     <br>
+     <ion-item lines="none">
+        <img slot="end" (click)="chat(x.id,x.customerid,x.providerid)" src="https://firebasestorage.googleapis.com/v0/b/roadside-bcd65.appspot.com/o/chat2.png?alt=media&token=d2631d08-bfbd-48e5-a8ca-4a1577437bea">
+      </ion-item>
+        
     
-      <ion-fab vertical="bottom" horizontal="end" edge slot="fixed">
-        
-          <ion-icon (click)="chat(x.id,x.customerid,x.providerid)" name="chatbubbles"></ion-icon>
-        
-        
-      </ion-fab>
+     </div>
+    </span>
+    </span>
 
-    </span>
-    </span>
 </ng-container>
+
 </span>
+ 
     </span>
    
     <span *ngIf="x.status=='pending'">
@@ -112,7 +129,7 @@
       
       <ion-card >
         <p> &nbsp; &nbsp;Request ID: {{x.id}}</p> 
-        <p> &nbsp; &nbsp;Request Date: {{x.date | date:'d-M-y h:mm a'}}</p> 
+        <p *ngIf="x.date"> &nbsp; &nbsp;Request Date: {{x.date?.toDate() | date:'d-M-y h:mm a'}}</p> 
         <p> &nbsp; &nbsp;Request status: {{x.status}}</p> 
         <ng-container *ngFor="let n of datasrv.users|async;">
           <span *ngIf="n.id == x.providerid">
@@ -126,7 +143,16 @@
       <p> &nbsp; &nbsp;Car series: {{y.series}}</p> 
       <p> &nbsp; &nbsp;Model year: {{y.year}}</p> 
       <p> &nbsp; &nbsp;Plate no: {{y.plateno}}</p> 
+      <span *ngIf="x.type=='Flat tyre'">
+
+        <p> &nbsp; &nbsp;Spare tyre availablity: {{x.spare}}</p> 
       
+      </span>
+      <span *ngIf="x.type=='Fuel'">
+      
+        <p> &nbsp; &nbsp;Fuel type: {{x.spare}}</p> 
+      
+      </span>
       </ion-card>
       </span>
         </ng-container>

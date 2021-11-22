@@ -7,12 +7,7 @@
  
   <ng-container *ngFor="let x of datasrv.orders|async;">
     <span *ngIf="x.id==id">
-      <ion-fab class="chaticon" vertical="bottom" horizontal="end" edge slot="fixed">
-        
-        <ion-icon (click)="chat(x.id,x.customerid,x.providerid)" name="chatbubbles"></ion-icon>
-      
-      
-      </ion-fab>
+   
 <h2>{{x.type}} request details</h2>
 
 <ng-container *ngFor="let y of datasrv.vehicles|async;">
@@ -51,29 +46,36 @@
   </ion-item>
 </center>
   </span>
-
+  <center>
+  
+   
+    <ion-button  class="price" aria-readonly="" fill="outline">
+        <ion-label>Price: {{x.price}} BD</ion-label>
+      
+      </ion-button>
+    </center>
+  
   <h3>&nbsp;&nbsp;&nbsp;&nbsp;Customer location:</h3>
 <center>
   
 <div class="locbutton">
 <ion-button href={{link}}>Open on google maps &nbsp; <ion-icon name="navigate-outline"></ion-icon></ion-button>
 </div>
-<br>
+
 
 </center>
 
 
 
-  <ion-item lines="none"class="background">
-    <ion-label>&nbsp;Price: &nbsp; {{x.price}} BD</ion-label>
 
-  
-</ion-item>
-<br>
 <center>
 <ion-button (click)="completed(x.id)">Order completed</ion-button>
 </center>
-
+<br>
+<ion-item lines="none">
+  <img slot="end" (click)="chat(x.id,x.customerid,x.providerid)" src="https://firebasestorage.googleapis.com/v0/b/roadside-bcd65.appspot.com/o/chat2.png?alt=media&token=d2631d08-bfbd-48e5-a8ca-4a1577437bea">
+</ion-item>
+  
     </span>
 </ng-container>
   

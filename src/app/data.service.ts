@@ -235,7 +235,7 @@ this.date=new Date();
     longtitude:long,
     notes:notes,
     status:"pending",
-    date:this.date.toString()
+    date:firebase.default.firestore.FieldValue.serverTimestamp(),
       });
 
 }
@@ -402,7 +402,7 @@ addordertyre(customer,type,car,lat,long,notes,spare){
       latitude:lat,
       longtitude:long,
       status:"pending",
-      date:this.date.toString(),
+      date:firebase.default.firestore.FieldValue.serverTimestamp(),
       spare:spare
         });
   
@@ -420,7 +420,44 @@ this.date=new Date();
     longtitude:long,
     notes:notes,
     status:"pending",
-    date:this.date.toString(),
+    date:firebase.default.firestore.FieldValue.serverTimestamp(),
+    spare:spare
+
+      });
+
+}
+}
+addorderfuel(customer,type,car,lat,long,notes,spare){
+  if(notes==null){
+
+
+    this.date=new Date();
+    return this.ordersCollectionRef.add({
+      customerid:customer,
+      type:type,
+      car:car,
+      latitude:lat,
+      longtitude:long,
+      status:"pending",
+      date:firebase.default.firestore.FieldValue.serverTimestamp(),
+      spare:spare
+        });
+  
+
+
+  }
+  if(notes!=null){
+
+this.date=new Date();
+  return this.ordersCollectionRef.add({
+    customerid:customer,
+    type:type,
+    car:car,
+    latitude:lat,
+    longtitude:long,
+    notes:notes,
+    status:"pending",
+    date:firebase.default.firestore.FieldValue.serverTimestamp(),
     spare:spare
 
       });

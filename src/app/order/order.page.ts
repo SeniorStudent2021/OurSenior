@@ -83,6 +83,7 @@ public car; public latit=0;
   
 
   public spare;
+  
 Handler(event) {
   // get data throught event emitter
   this.spare = event.target.value;
@@ -133,6 +134,16 @@ Handler(event) {
           cssClass:'alertbutton',
   
         }]    })
+        let alertfuel =await  this.alertCtrl.create({
+          header: 'Fuel type',
+          cssClass: 'alertcolor',
+          message: 'Please specify Fuel type',
+          buttons: [{
+            text:'OK',
+            role:'ok',
+            cssClass:'alertbutton',
+    
+          }]    })
       let alert2 =await  this.alertCtrl.create({
         header: 'Error',
         cssClass: 'alertcolor',
@@ -149,6 +160,9 @@ Handler(event) {
 if(this.type=="Flat tyre"&&this.spare==null){
   alert3.present();
 }
+if(this.type=="Fuel"&&this.spare==null){
+  alertfuel.present();
+}
 if(this.type=="Flat tyre"&&this.spare!=null){
     this.datasrv.addordertyre(this.id,this.type,this.car,this.latit,this.longit,this.notes,this.spare).then((respone)=>{
     
@@ -156,13 +170,27 @@ if(this.type=="Flat tyre"&&this.spare!=null){
       this.router.navigate(['/activerequest/'+this.id]); 
 
 })
+
 .catch((err)=>{
 alert2.present();
  }) 
 
  }
+ if(this.type=="Fuel"&&this.spare!=null){
+  this.datasrv.addorderfuel(this.id,this.type,this.car,this.latit,this.longit,this.notes,this.spare).then((respone)=>{
+  
+    alert.present();   
+    this.router.navigate(['/activerequest/'+this.id]); 
 
-if(this.type!="Flat tyre"){
+})
+
+.catch((err)=>{
+alert2.present();
+}) 
+
+}
+
+if(this.type!="Flat tyre"&&this.type!="Fuel"){
 
   this.datasrv.addorder(this.id,this.type,this.car,this.latit,this.longit,this.notes).then((respone)=>{
     

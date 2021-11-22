@@ -39,7 +39,7 @@ public tasleehEarning:number=0;
     this.array.forEach(element => {
       if(element.status=="completed"){
         if(element.providerid==this.id){
-      this.profit+=element.price;
+      this.profit+=parseFloat(element.price);
       this.index++;
       }}
     });
