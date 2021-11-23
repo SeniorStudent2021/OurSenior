@@ -19,17 +19,41 @@
   <h3>  &nbsp; &nbsp;Request information</h3>
 
 <ion-card >
-  <p> &nbsp; &nbsp;Request ID: {{x.id}}</p> 
-  <p *ngIf="x.date"> &nbsp; &nbsp; Request Date: {{x.date?.toDate() | date:'d-M-y h:mm a'}}</p>
-  <p> &nbsp; &nbsp;Request status: {{x.status}}</p> 
+  <ion-item lines="none">
+    <ion-icon class="icon" src="/assets/id.svg"> </ion-icon> &nbsp; <p> : {{x.id}}</p> 
+  </ion-item>
+  <ion-item lines="none">
 
-<p> &nbsp; &nbsp;Customer name: {{z.name}}</p>
- <p> &nbsp; &nbsp;customer number: {{z.mobile}}</p>
-<p> &nbsp; &nbsp;Car Company: {{y.company}}</p>
-<p> &nbsp; &nbsp;Car series: {{y.series}}</p> 
-<p> &nbsp; &nbsp;Model year: {{y.year}}</p> 
-<p> &nbsp; &nbsp;Plate no: {{y.plateno}}</p> 
+    <ion-icon class="icon" src="/assets/date.svg"> </ion-icon> <p *ngIf="x.date"> &nbsp; : {{x.date?.toDate() | date:'d-M-y h:mm a'}}</p> 
+</ion-item>
 
+<ion-item lines="none">
+<ion-icon class="icon" src="/assets/status.svg"> </ion-icon> &nbsp; <p> : {{x.status}}</p> 
+</ion-item>
+<ion-item lines="none">
+  <ion-icon class="icon" src="/assets/customer.svg"> </ion-icon> &nbsp; <p> : {{z.name}}</p> 
+</ion-item>
+<ion-item lines="none">
+  <ion-icon class="icon" src="/assets/mobile.svg"> </ion-icon> &nbsp; <p> : {{z.mobile}}</p> 
+</ion-item>
+<ion-item lines="none">
+  <ion-icon class="icon" src="/assets/car.svg"> </ion-icon> &nbsp; <p> : {{y.company}} - {{y.series}}</p> 
+</ion-item>
+
+<ion-item lines="none">
+  <ion-icon class="icon" src="/assets/plate.svg"> </ion-icon> &nbsp; <p> : {{y.plateno}}</p> 
+</ion-item>
+<span *ngIf="x.type=='Flat tyre'">
+
+  <p> &nbsp; &nbsp;Spare tyre availablity: {{x.spare}}</p> 
+
+</span>
+<span *ngIf="x.type=='Fuel'">
+
+  <ion-item lines="none">
+    <ion-icon class="icon" src="/assets/fuel.svg"> </ion-icon> &nbsp; <p> : {{x.spare}} </p> 
+  </ion-item>   
+  </span>   
 </ion-card>
 </span>
   </ng-container>
@@ -47,12 +71,12 @@
 </center>
   </span>
 
-
-  <ion-item lines="none"class="background">
-    <ion-label>&nbsp;Price: &nbsp; {{x.price}} BD</ion-label>
-
- 
-</ion-item>
+<center>
+    <ion-button  class="price" aria-readonly fill="outline">
+      <ion-label>Price: {{x.price}} BD</ion-label>
+    
+    </ion-button>
+  </center>
 <br>
 
 

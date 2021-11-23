@@ -18,7 +18,7 @@
            }
                   ion-card{
             
-                background-color: #04ADB2;
+                background-color:#29364d;
             }
             
             
@@ -100,15 +100,18 @@
       font-family: poppins;
     }
     ion-item{
-    .item-content {
-      background-color:#f3f6ff;
+      --background:none;
     
-    }
-    background-color:#f3f6ff;
 
-    width: fit-content;
   }
   ion-radio{
     width: 40px;
     height: 30px;
+  }
+  .icon{
+    width:30px;
+    height: 40px;
+    color: aliceblue;
+
+    
   }

@@ -21,35 +21,49 @@
   <h3>  &nbsp; &nbsp;Request information</h3>
 
 <ion-card >
-  <p> &nbsp; &nbsp;Request ID: {{x.id}}</p> 
   
-  <p *ngIf="x.date"> &nbsp; &nbsp;Request Date: {{x.date?.toDate() | date:'d-M-y h:mm a'}}</p> 
+  <ion-item lines="none">
+    <ion-icon class="icon" src="/assets/id.svg"> </ion-icon> &nbsp; <p> : {{x.id}}</p> 
+  </ion-item>
+  <ion-item lines="none">
 
-  <p> &nbsp; &nbsp;Request status: {{x.status}}</p> 
-  <ng-container *ngFor="let n of datasrv.users|async;">
-    <span *ngIf="n.id == x.providerid">
-      <p> &nbsp; &nbsp;Provider name: {{n.name}}</p>
-      <p> &nbsp; &nbsp;Provider number: {{n.mobile}}</p> 
-    </span>
-  </ng-container>
+    <ion-icon class="icon" src="/assets/date.svg"> </ion-icon> <p *ngIf="x.date"> &nbsp; : {{x.date?.toDate() | date:'d-M-y h:mm a'}}</p> 
+</ion-item>
+
+<ion-item lines="none">
+<ion-icon class="icon" src="/assets/status.svg"> </ion-icon> &nbsp; <p> : {{x.status}}</p> 
+</ion-item>
+
+ 
   <ng-container *ngFor="let c of datasrv.users|async;">
     <span *ngIf="c.id==prov">
       <span *ngIf="c.type=='admin'">
+        <ion-item lines="none">
+          <ion-icon class="icon" src="/assets/customer.svg"> </ion-icon> &nbsp; <p> : {{z.name}}</p> 
+        </ion-item>
+        <ion-item lines="none">
+          <ion-icon class="icon" src="/assets/mobile.svg"> </ion-icon> &nbsp; <p> : {{z.mobile}}</p> 
+        </ion-item>
+        <ion-item lines="none">
+          <ion-icon class="icon" src="/assets/car.svg"> </ion-icon> &nbsp; <p> : {{y.company}} - {{y.series}}</p> 
+        </ion-item>
+     
+        <ion-item lines="none">
+          <ion-icon class="icon" src="/assets/plate.svg"> </ion-icon> &nbsp; <p> : {{y.plateno}}</p> 
+        </ion-item>
 
-<p> &nbsp; &nbsp;Customer name: {{z.name}}</p>
- <p> &nbsp; &nbsp;Customer number: {{z.mobile}}</p>
-<p> &nbsp; &nbsp;Car Company: {{y.company}}</p>
-<p> &nbsp; &nbsp;Car series: {{y.series}}</p> 
-<p> &nbsp; &nbsp;Model year: {{y.year}}</p> 
-<p> &nbsp; &nbsp;Plate no: {{y.plateno}}</p> 
       </span>
       <span *ngIf="c.type=='customer'">
 
+        <ion-item lines="none">
+          <ion-icon class="icon" src="/assets/car.svg"> </ion-icon> &nbsp; <p> : {{y.company}} - {{y.series}}</p> 
+        </ion-item>
+     
+        <ion-item lines="none">
+          <ion-icon class="icon" src="/assets/plate.svg"> </ion-icon> &nbsp; <p> : {{y.plateno}}</p> 
+        </ion-item>
       
-        <p> &nbsp; &nbsp;Car Company: {{y.company}}</p>
-        <p> &nbsp; &nbsp;Car series: {{y.series}}</p> 
-       
-        <p> &nbsp; &nbsp;Plate no: {{y.plateno}}</p> 
+     
               </span>
       </span>
     
@@ -61,8 +75,9 @@
       </span>
       <span *ngIf="x.type=='Fuel'">
       
-        <p> &nbsp; &nbsp;Fuel type: {{x.spare}}</p> 
-      
+        <ion-item lines="none">
+          <ion-icon class="icon" src="/assets/fuel.svg"> </ion-icon> &nbsp; <p> : {{x.spare}} </p> 
+        </ion-item>      
       </span>
 </ion-card>
 </span>
@@ -83,10 +98,24 @@
   </span>
 
 <span *ngIf="x.status!='pending'">
+  <h3>  &nbsp; &nbsp;Provider information</h3>
+
   <center>
-  
-   
-<ion-button  class="price" aria-readonly="" fill="outline">
+<div class="prov"> 
+<ion-card>
+
+    <ng-container *ngFor="let n of datasrv.users|async;">
+      <span *ngIf="n.id == x.providerid">
+        <ion-item lines="none">
+          <ion-icon class="icon" src="/assets/provider.svg"> </ion-icon> &nbsp; <p> : {{n.name}}&nbsp;&nbsp;</p> 
+        
+          <ion-icon class="icon" src="/assets/mobile.svg"> </ion-icon>  <p> : {{n.mobile}}</p> 
+        </ion-item>
+      </span>
+    </ng-container>
+  </ion-card>
+</div>
+<ion-button  class="price" aria-readonly fill="outline">
     <ion-label>Price: {{x.price}} BD</ion-label>
   
   </ion-button>
@@ -124,35 +153,79 @@
         <span *ngIf="y.id == x.car"> 
         <ng-container *ngFor="let z of datasrv.users|async;">
       <span *ngIf="z.id == x.customerid">
-        <br>
+        
         <h3>  &nbsp; &nbsp;Request information</h3>
       
       <ion-card >
-        <p> &nbsp; &nbsp;Request ID: {{x.id}}</p> 
-        <p *ngIf="x.date"> &nbsp; &nbsp;Request Date: {{x.date?.toDate() | date:'d-M-y h:mm a'}}</p> 
-        <p> &nbsp; &nbsp;Request status: {{x.status}}</p> 
+        <ion-item lines="none">
+        <ion-icon class="icon" src="/assets/id.svg"> </ion-icon> &nbsp; <p> : {{x.id}}</p> 
+      </ion-item>
+      <ion-item lines="none">
+
+        <ion-icon class="icon" src="/assets/date.svg"> </ion-icon> <p *ngIf="x.date"> &nbsp; : {{x.date?.toDate() | date:'d-M-y h:mm a'}}</p> 
+</ion-item>
+
+<ion-item lines="none">
+  <ion-icon class="icon" src="/assets/status.svg"> </ion-icon> &nbsp; <p> : {{x.status}}</p> 
+</ion-item>
+
         <ng-container *ngFor="let n of datasrv.users|async;">
           <span *ngIf="n.id == x.providerid">
-            <p> &nbsp; &nbsp;Provider name: {{n.name}}</p>
-            <p> &nbsp; &nbsp;Provider number: {{n.mobile}}</p> 
+            <ion-item lines="none">
+              <ion-icon class="icon" src="/assets/provider.svg"> </ion-icon> &nbsp; <p> : {{n.name}}</p> 
+            </ion-item>
+            <ion-item lines="none">
+              <ion-icon class="icon" src="/assets/mobile.svg"> </ion-icon> &nbsp; <p> : {{n.mobile}}</p> 
+            </ion-item>
+         
           </span>
         </ng-container>
-      <p> &nbsp; &nbsp;Customer name: {{z.name}}</p>
-       <p> &nbsp; &nbsp;Customer number: {{z.mobile}}</p>
-      <p> &nbsp; &nbsp;Car Company: {{y.company}}</p>
-      <p> &nbsp; &nbsp;Car series: {{y.series}}</p> 
-      <p> &nbsp; &nbsp;Model year: {{y.year}}</p> 
-      <p> &nbsp; &nbsp;Plate no: {{y.plateno}}</p> 
-      <span *ngIf="x.type=='Flat tyre'">
-
-        <p> &nbsp; &nbsp;Spare tyre availablity: {{x.spare}}</p> 
+        <ng-container *ngFor="let c of datasrv.users|async;">
+          <span *ngIf="c.id==prov">
+            <span *ngIf="c.type=='admin'">
       
-      </span>
-      <span *ngIf="x.type=='Fuel'">
+              <ion-item lines="none">
+                <ion-icon class="icon" src="/assets/customer.svg"> </ion-icon> &nbsp; <p> : {{z.name}}</p> 
+              </ion-item>
+              <ion-item lines="none">
+                <ion-icon class="icon" src="/assets/mobile.svg"> </ion-icon> &nbsp; <p> : {{z.mobile}}</p> 
+              </ion-item>
+              <ion-item lines="none">
+                <ion-icon class="icon" src="/assets/car.svg"> </ion-icon> &nbsp; <p> : {{y.company}} - {{y.series}}</p> 
+              </ion-item>
+           
+              <ion-item lines="none">
+                <ion-icon class="icon" src="/assets/plate.svg"> </ion-icon> &nbsp; <p> : {{y.plateno}}</p> 
+              </ion-item>
       
-        <p> &nbsp; &nbsp;Fuel type: {{x.spare}}</p> 
+            </span>
+            <span *ngIf="c.type=='customer'">
       
-      </span>
+              <ion-item lines="none">
+                <ion-icon class="icon" src="/assets/car.svg"> </ion-icon> &nbsp; <p> : {{y.company}} - {{y.series}}</p> 
+              </ion-item>
+           
+              <ion-item lines="none">
+                <ion-icon class="icon" src="/assets/plate.svg"> </ion-icon> &nbsp; <p> : {{y.plateno}}</p> 
+              </ion-item>
+           
+                                 </span>
+            </span>
+          
+            </ng-container>
+            <span *ngIf="x.type=='Flat tyre'">
+      
+              <p> &nbsp; &nbsp;Spare tyre availablity: {{x.spare}}</p> 
+            
+            </span>
+            <span *ngIf="x.type=='Fuel'">
+              <ion-item lines="none">
+                <ion-icon class="icon" src="/assets/fuel.svg"> </ion-icon> &nbsp; <p> : {{x.spare}} </p> 
+              </ion-item>
+           
+             
+            
+            </span>
       </ion-card>
       </span>
         </ng-container>
@@ -169,13 +242,13 @@
         </ion-item>
       </center>
         </span>
-      <br>
+      
        <ng-container *ngFor="let c of datasrv.users|async;">
     <span *ngIf="c.id==prov">
       <span *ngIf="c.type=='customer'">
 
       <h2>Providers offers</h2>
-      <br>
+      
       <div class="h4">
         <ion-row>
           

@@ -14,10 +14,14 @@
   <span *ngIf="x.id == car"> 
 
 <ion-card >
-<p> &nbsp; &nbsp;Car Company: {{x.company}}</p>
-<p> &nbsp; &nbsp;Car series: {{x.series}}</p> 
-<p> &nbsp; &nbsp;Model year: {{x.year}}</p> 
-<p> &nbsp; &nbsp;Plate no: {{x.plateno}}</p> 
+ 
+  <ion-item lines="none">
+    <ion-icon class="icon" src="/assets/car.svg"> </ion-icon> &nbsp; <p> : {{x.company}} - {{x.series}} - {{x.year}}</p> 
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-icon class="icon" src="/assets/plate.svg"> </ion-icon> &nbsp; <p> : {{x.plateno}}</p> 
+  </ion-item>
 </ion-card>
   </span>
   </span>

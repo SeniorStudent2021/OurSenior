@@ -18,7 +18,7 @@
            }
                   ion-card{
             
-                background-color: #04ADB2;
+                background-color: #29364d;
             }
             
             
@@ -26,9 +26,9 @@
                 font-family:poppins;
             
               
-                font-size: 15px;
-                font-weight: bold;
-                color: aliceblue;
+                font-size: 17px;
+                font-weight: bolder;
+                color: aliceblue
               
               }
               h3{
@@ -133,15 +133,9 @@
 
     }
   }}
-  }
-  ion-icon{
-    font-size:100px;
-    color: #04ADB2;
- width: 100x;
- height: 100px;
  
-
   }
+  
 
  .chat{
  
@@ -173,4 +167,21 @@ width: 80%;
     width: 30%;
     float: right;
    
+  }
+  .icon{
+    width:30px;
+    height: 40px;
+    color: aliceblue;
+
+    
+  }
+  ion-item{
+    --background-color: none;
+    --background:none;
+
+  }
+  .prov{
+    ion-card{
+    background-color: #04ADB2;
+    }
   }
