@@ -74,18 +74,18 @@ this.appPages3 = [
        if (user) {
 
 
-       // this.router.navigate(['/home/'+user.uid]); 
+       this.router.navigate(['/home/'+user.uid]); 
 
-       this.rootPage = '/home/'+ user.uid;
+       //this.rootPage = '/home/'+ user.uid;
 
         authObserver.unsubscribe();
 
        } else {
 
 
-       // this.router.navigateByUrl('/login'); 
+      this.router.navigateByUrl('/login'); 
 
-        this.rootPage = 'login';
+       // this.rootPage = 'login';
         authObserver.unsubscribe();
 
        }
