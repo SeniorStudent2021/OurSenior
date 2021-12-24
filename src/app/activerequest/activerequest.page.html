@@ -43,11 +43,14 @@
     <ion-list lines="none" *ngSwitchCase="'history'">
       <ng-container *ngFor="let x of datasrv.orders| async;" >
           <span *ngIf="x.status=='completed'">
+            <span *ngIf="x.customerid==id">
+
 <ion-card  (click)="details2(x.id)">
 <h3> &nbsp; {{x.type}} request {{x.id}}</h3>
 <p *ngIf="x.date"> &nbsp; <ion-icon name="calendar-outline"></ion-icon> &nbsp;{{x.date?.toDate() | date:'d-M-y h:mm a'}}</p>
 <p> &nbsp;  <ion-icon name="sync-circle-outline"></ion-icon> &nbsp; {{x.status}}</p>
 </ion-card>
+</span>
 </span>
 
 
