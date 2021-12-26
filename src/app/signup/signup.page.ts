@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { DataService,User } from '../data.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from "@angular/forms";
+import { AngularFirestore } from '@angular/fire/firestore';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.page.html',
@@ -15,7 +16,7 @@ export class SignupPage implements OnInit {
   country_phone_group: FormGroup;
   myForm: FormGroup;
   submitted = false;
-  constructor(public formBuilder: FormBuilder,public afAuth:AngularFireAuth, public router:Router,public alertCtrl:AlertController, public datasrv:DataService) { }
+  constructor(public afs: AngularFirestore,public formBuilder: FormBuilder,public afAuth:AngularFireAuth, public router:Router,public alertCtrl:AlertController, public datasrv:DataService) { }
 
   ngOnInit() {
     this.myForm = this.formBuilder.group({
@@ -49,7 +50,8 @@ export class SignupPage implements OnInit {
     return this.myForm.controls;
   }
   public item;
-
+public array=[];
+public array2=[];
   async onSubmit(name,email,password,mobile) {
     this.submitted = true;
     if (!this.myForm.valid) {
@@ -68,19 +70,18 @@ export class SignupPage implements OnInit {
         cssClass:'alertbutton',
 
       }]    })
-      let alert2 =await  this.alertCtrl.create({
+      let alert3 =await  this.alertCtrl.create({
         header: 'Error',
         cssClass: 'alertcolor',
-    
-        message: ' User not created, pleade try again ',
+        message: 'Email already registered, please sign in instead',
         buttons: [{
           text:'OK',
           role:'ok',
           cssClass:'alertbutton',
-    
-        }
-        ]
-    });
+  
+        }]    })
+   
+  
 
       this.afAuth.createUserWithEmailAndPassword(this.myForm.value['email'], this.myForm.value['password'])
 
@@ -98,8 +99,21 @@ export class SignupPage implements OnInit {
        
        
 })
-.catch((err)=>{
-alert2.present();
+.catch(async (err)=>{
+  let alert2 =  this.alertCtrl.create({
+    header: 'Error',
+    cssClass: 'alertcolor',
+
+    message: err.message,
+    buttons: [{
+      text:'OK',
+      role:'ok',
+      cssClass:'alertbutton',
+
+    }
+    ]
+});
+  (await alert2).present();
   }) 
 }
  

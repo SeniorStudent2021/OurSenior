@@ -51,7 +51,7 @@
 </span>
 <br>
 <ion-item class="roundedInput">
-  <ion-input  formControlName="password"  placeholder="Enter password">  </ion-input><br>
+  <ion-input  formControlName="password" type="password" placeholder="Enter password">  </ion-input><br>
 </ion-item>
 <span class="x" *ngIf="submitted && errorCtr.password.errors?.required">
   &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;Password is required.
@@ -62,7 +62,7 @@
 </span>
 <br>
 <ion-item class="roundedInput">
-  <ion-input   formControlName="cpassword"  placeholder="Confirm password">  </ion-input><br>
+  <ion-input   formControlName="cpassword"  type="password" placeholder="Confirm password">  </ion-input><br>
 </ion-item>
 <span class="x" *ngIf="submitted &&  errorCtr.cpassword.errors?.required">
   &nbsp; &nbsp; &nbsp; &nbsp;Confirmation password is required.
